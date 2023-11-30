@@ -24,11 +24,25 @@ function calculateProbability() {
                             if (successfulDraws == 1) {
                                 document.getElementById('stats').innerText = `(${num}/${deckSize})*(${deckSize-num}/${deckSize-1}) = ` + (num / deckSize)*((deckSize-num)/(deckSize-1));
                             } else {
-                                document.getElementById('stats').innerText = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize - 1));
+                                document.getElementById('stats').innerText = `(${num}/${deckSize})*(${num-1}/${deckSize - 1}) = ` + (num / deckSize) * ((num-1) / (deckSize - 1));
                             }
                         } else if (totalDraws == 3) {
                             if (successfulDraws == 1) {
                                 document.getElementById('stats').innerText = `(${num}/${deckSize})*(${deckSize-num}/${deckSize-1})*(${deckSize-num-1}/${deckSize-2}) = ` + (num / deckSize)*((deckSize-num)/(deckSize-1))*((deckSize-num-1)/(deckSize-2));
+                            } else if (successfulDraws == 2) {
+                                document.getElementById('stats').innerText = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${deckSize-num}/${deckSize-2}) = ` + (num / deckSize)*((num-1)/(deckSize-1))*((deckSize-num)/(deckSize-2));
+                            } else {
+                                document.getElementById('stats').innerText = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${num-2}/${deckSize-2}) = ` + (num / deckSize)*((num-1)/(deckSize-1))*((num-2)/(deckSize-2));
+                            }
+                        } else if (totalDraws == 4) {
+                            if (successfulDraws == 1) {
+                                document.getElementById('stats').innerText = `(${num}/${deckSize})*(${deckSize-num}/${deckSize-1})*(${deckSize-num-1}/${deckSize-2})*(${deckSize-num-2}/${deckSize-3}) = ` + (num / deckSize)*((deckSize-num)/(deckSize-1))*((deckSize-num-1)/(deckSize-2))*((deckSize-num-2)/(deckSize-3));
+                            } else if (successfulDraws == 2) {
+                                document.getElementById('stats').innerText = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${deckSize-num}/${deckSize-2})*(${deckSize-num-1}/${deckSize-3}) = ` + (num / deckSize)*((num-1)/(deckSize-1))*((deckSize-num)/(deckSize-2))*((deckSize-num-1)/(deckSize-3));
+                            } else if (successfulDraws == 3) {
+                                document.getElementById('stats').innerText = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${num-2}/${deckSize-2})*(${deckSize-num}/${deckSize-3}) = ` + (num / deckSize)*((num-1)/(deckSize-1))*((num-2)/(deckSize-2))*((deckSize-num)/(deckSize-3));
+                            } else {
+                                document.getElementById('stats').innerText = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${num-2}/${deckSize-2})*(${num-3}/${deckSize-3}) = ` + (num / deckSize)*((num-1)/(deckSize-1))*((num-2)/(deckSize-2))*((num-3)/(deckSize-3));
                             }
                         }
                     }
