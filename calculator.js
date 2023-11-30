@@ -1,3 +1,11 @@
+var num = 0;
+const suits = ['SPADES', 'HEARTS', 'CLUBS', 'DIAMONDS', 'SPADE', 'HEART', 'CLUB', 'DIAMOND']
+const cards = ['A', 'ACE', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'JACK', 'Q', 'QUEEN', 'K', 'KING']
+var result = ''
+var stats = ''
+var atLeastStats = ''
+var exactness = ''
+
 function calculateProbability() {
     const totalDraws = document.getElementById('totalDraws').value;
     const successfulDraws = document.getElementById('successfulDraws').value;
@@ -5,13 +13,6 @@ function calculateProbability() {
     const cardReplacement = document.getElementById('cardReplacement').value.toUpperCase();
     const selectedCard = document.getElementById('selectedCard').value.toUpperCase();
     const deckSize = 52;
-    var num = 0;
-    const suits = ['SPADES', 'HEARTS', 'CLUBS', 'DIAMONDS', 'SPADE', 'HEART', 'CLUB', 'DIAMOND']
-    const cards = ['A', 'ACE', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'JACK', 'Q', 'QUEEN', 'K', 'KING']
-    var result = ''
-    var stats = ''
-    var exactStats = ''
-    var exactness = ''
 
     if (exactDraws == 'NO') {
         exactness = 'at least'
@@ -35,22 +36,12 @@ function calculateProbability() {
                     } else {
                         result = `The probability of drawing ${exactness} ${successfulDraws} ${selectedCard}(s) in ${totalDraws} draw(s) without card replacement:`;
                         if (totalDraws == 1) {
-                            console.log('THERE')
                             stats = `(${num}/${deckSize}) = ` + (num / deckSize);
-                            if (exactDraws == 'NO') {
-                                exactStats += stats
-                            }
                         } else if (totalDraws == 2) {
                             if (successfulDraws == 1) {
                                 stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize - 1));
-                                if (exactDraws == 'NO') {
-                                    exactStats += stats
-                                }
                             } else {
                                 stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1));
-                                if (exactDraws == 'NO') {
-                                    exactStats += stats
-                                }
                             }
                         } else if (totalDraws == 3) {
                             if (successfulDraws == 1) {
@@ -283,11 +274,12 @@ function calculateProbability() {
         result = `Please enter a valid card or suit`
     }
     if (exactDraws == 'NO') {
+
         document.getElementById('result').innerText = result
-        document.getElementById('stats').innerText = stats
+        document.getElementById('stats').innerText = atLeastStats
     } else if (exactDraws == 'YES') {
         document.getElementById('result').innerText = result
-        document.getElementById('stats').innerText = exactStats
+        document.getElementById('stats').innerText = stats
     } else {
         document.getElementById('result').innerText = `Please type either Yes or No for exactness`
         document.getElementById('stats').innerText = ''
