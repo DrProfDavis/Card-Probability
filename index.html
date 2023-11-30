@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Card Calculator</title>
+</head>
+
+<body>
+    <h1>Deck of Cards Statistics Calculator</h1>
+
+    <div>
+        <label for="totalDraws">How many total draws?</label>
+        <input id="totalDraws" placeholder="1, 2, 3...">
+        </input>
+    </div>
+
+    <div>
+        <label for="successfulDraw">How many successful draws are needed?</label>
+        <input id="successfulDraw" placeholder="1, 2, 3...">
+        </input>
+    </div>
+
+    <div>
+        <label for="cardReplacement">Will cards be replaced?</label>
+        <input id="cardReplacement" placeholder="Yes or No">
+        </input>
+    </div>
+
+    <!-- <div>
+        <label for="sameCondition">Is each successful draw the same condition?</label>
+        <input id="sameCondition" placeholder="Yes or No">
+        </input>
+    </div> -->
+
+    <!-- <div><label>IMPORTANT NOTES FOR THE LAST QUESTION:</label></div>
+    <div><label>If each successful draw is a different condition, then separate conditions with a comma</label></div>
+    <div><label>If you want a specific card AND suit then write as "Queen Hearts" or "2 Spades"</label></div> -->
+
+    <div>
+        <label for="selectedCard">Select a card or suit:</label>
+        <input id="selectedCard" placeholder="2, Jack, Spade">
+        </input>
+    </div>
+
+    <div><button onclick="calculateProbability()">Calculate Probability</button></div>
+
+    <div id="result"></div>
+    <div id="stats"></div>
+
+    <script src="calculator.js"></script>
+</body>
+
+</html>
