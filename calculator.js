@@ -270,55 +270,122 @@ function calculateProbability() {
                 atLeastStats = `(${num}/${deck}) = ` + (num / deck);
             } else if (totalDraws == 2) {
                 if (successfulDraws == 1) {
-                    a = `(${num}/${deck})*(${deck - num}/${deck - 1}) + (${deck - num}/${deck - 1})*(${num}/${deck}) + (${num}/${deck})*(${num - 1}/${deck - 1}) = `;
-                    b = ((num / deck) * ((deck - num) / (deck - 1))) + ((deck - num) / ((deck - 1)) * (num / deck)) + ((num / deck) * ((num - 1) / (deck - 1)));
-                    atLeastStats = a + b;
+                    a = `(${num}/${deck})*(${deck - num}/${deck - 1}) * 3 = `;
+                    b = ((num / deck) * ((deck - num) / (deck - 1))) * 3;
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1}) = `;
+                    d = (num / deck) * ((num - 1) / (deck - 1));
+                    atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 } else if (successfulDraws == 2) {
                     atLeastStats = `(${num}/${deck})*(${num - 1}/${deck - 1}) = ` + (num / deck) * ((num - 1) / (deck - 1));
                 }
             } else if (totalDraws == 3) {
                 if (successfulDraws == 1) {
-                    a = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2}) + (${deck - num}/${deck})*(${num}/${deck - 1})*(${deck - num - 1}/${deck - 2}) + (${deck - num}/${deck})*(${deck - num - 1}/${deck - 1})*(${num}/${deck - 2}) = `;
-                    b = (num / deck) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) + ((deck - num) / deck) * ((num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) + ((deck - num) / deck) * ((deck - num - 1) / (deck - 1)) * ((num) / (deck - 2));
-                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2}) + (${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2}) + (${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2}) + (${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = `;
-                    d = (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) + (num / deck) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) + ((deck - num) / deck) * (num / (deck - 1)) * ((num - 1) / (deck - 2)) + ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
-                    atLeastStats = a + b + '\n' + c + d + '\n' + `${b} + ${d} = ` + (b + d)
+                    a = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2}) * 3= `;
+                    b = (num / deck) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * 3;
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2}) * 3 = `;
+                    d = (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * 3;
+                    e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = `;
+                    f = (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
+                    atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
                 } else if (successfulDraws == 2) {
-                    a = (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) + (num / deck) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) + ((deck - num) / deck) * (num / (deck - 1)) * ((num - 1) / (deck - 2)) + ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
-                    b = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2}) + (${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2}) + (${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2}) + (${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = `;
-                    atLeastStats = b + a
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2}) * 3 = `;
+                    b = (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * 3;
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = `;
+                    d = (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
+                    atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 } else if (successfulDraws == 3) {
-                    atLeastStats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = `;
+                    b = (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
+                    atLeastStats = a + b
                 }
-
             } else if (totalDraws == 4) {
                 if (successfulDraws == 1) {
-                    a = `(${num}/${deck})*(${deck - num}/${deck-1})*(${deck - num - 1}/${deck-2})*(${deck - num - 2}/${deck-3}) + (${deck - num}/${deck})*(${num}/${deck-1})*(${deck - num - 1}/${deck-2})*(${deck - num - 2}/${deck-3}) + \n(${deck - num}/${deck})*(${deck - num - 1}/${deck-1})*(${num}/${deck-2})*(${deck - num - 2}/${deck-3}) + (${deck - num}/${deck})*(${deck - num - 1}/${deck-1})*(${deck - num - 2}/${deck-2})*(${num}/${deck-3}) = `
-                    b = ((num)/(deck))*((deck - num)/(deck-1))*((deck - num - 1)/(deck-2))*((deck - num - 2)/(deck-3)) + ((deck - num)/(deck))*((num)/(deck-1))*((deck - num - 1)/(deck-2))*((deck - num - 2)/(deck-3)) + ((deck - num)/(deck))*((deck - num - 1)/(deck-1))*((num)/(deck-2))*((deck - num - 2)/(deck-3)) + ((deck - num)/(deck))*((deck - num - 1)/(deck-1))*((deck - num - 2)/(deck-2))*((num)/(deck-3))
-                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3}) + (${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2})*(${deck - num - 1}/${deck - 3}) + \n(${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2})*(${deck - num - 1}/${deck - 3}) + (${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${num - 1}/${deck - 3}) + \n(${deck - num}/${deck})*(${num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${num - 1}/${deck - 3}) + (${deck - num}/${deck})*(${deck - num - 1}/${deck - 1})*(${num}/${deck - 2})*(${num - 1}/${deck - 3}) = `;
-                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((num - 1) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((num - 1) / (deck - 3)) + ((deck - num) / (deck)) * ((deck - num - 1) / (deck - 1)) * ((num) / (deck - 2)) * ((num - 1) / (deck - 3));
-                    e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) + (${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${num - 2}/${deck - 3}) + \n(${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2})*(${num - 2}/${deck - 3}) + (${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2})*(${num - 2}/${deck - 3}) = `;
-                    f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) + ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((num - 2) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((num - 2) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((num - 2) / (deck - 3));
+                    a = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${deck - num - 2}/${deck - 3}) * 4 = `;
+                    b = ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((deck - num - 2) / (deck - 3)) * 4;
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3}) * 6 = `;
+                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * 6;
+                    e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) * 4 = `;
+                    f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * 4;
                     g = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
                     h = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                     atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
                 } else if (successfulDraws == 2) {
-                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3}) + (${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2})*(${deck - num - 1}/${deck - 3}) + \n(${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2})*(${deck - num - 1}/${deck - 3}) + (${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${num - 1}/${deck - 3}) + \n(${deck - num}/${deck})*(${num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${num - 1}/${deck - 3}) + (${deck - num}/${deck})*(${deck - num - 1}/${deck - 1})*(${num}/${deck - 2})*(${num - 1}/${deck - 3}) = `;
-                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((num - 1) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((num - 1) / (deck - 3)) + ((deck - num) / (deck)) * ((deck - num - 1) / (deck - 1)) * ((num) / (deck - 2)) * ((num - 1) / (deck - 3));
-                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) + (${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${num - 2}/${deck - 3}) + \n(${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2})*(${num - 2}/${deck - 3}) + (${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2})*(${num - 2}/${deck - 3}) = `;
-                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) + ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((num - 2) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((num - 2) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((num - 2) / (deck - 3));
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3}) * 6 = `;
+                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * 6;
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) * 4 = `;
+                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * 4;
                     e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
                     f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                     atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
                 } else if (successfulDraws == 3) {
-                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) + (${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${num - 2}/${deck - 3}) + \n(${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2})*(${num - 2}/${deck - 3}) + (${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2})*(${num - 2}/${deck - 3}) = `;
-                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) + ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((num - 2) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((num - 2) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((num - 2) / (deck - 3));
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) * 4 = `;
+                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * 4;
                     c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
                     d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                     atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 } else if (successfulDraws == 4) {
                     a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
                     b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
+                    atLeastStats = a + b
+                }
+            } else if (totalDraws == 5) {
+                if (successfulDraws == 1) {
+                    a = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${deck - num - 2}/${deck - 3})*(${deck - num - 3}/${deck - 4}) * 5 = `;
+                    b = ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((deck - num - 2) / (deck - 3)) * ((deck - num - 3) / (deck - 4)) * 5;
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3})*(${deck - num - 2}/${deck - 4}) * 10 = `;
+                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * ((deck - num - 2) / (deck - 4)) * 10;
+                    e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4}) * 10 = `;
+                    f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4)) * 10;
+                    g = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4}) * 5 = `;
+                    h = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
+                    atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
+                } else if (successfulDraws == 2) {
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3})*(${deck - num - 2}/${deck - 4}) * 10 = `;
+                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * ((deck - num - 2) / (deck - 4)) * 10;
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4}) * 10 = `;
+                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4)) * 10;
+                    e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4}) * 5 = `;
+                    f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
+                    atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
+                } else if (successfulDraws == 3) {
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4}) * 10 = `;
+                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4)) * 10;
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4}) * 5 = `;
+                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
+                    atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
+                } else if (successfulDraws == 4) {
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4}) * 5 = `;
+                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
+                    atLeastStats = a + b
+                }
+            } else if (totalDraws == 6) {
+                if (successfulDraws == 1) {
+                    a = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${deck - num - 2}/${deck - 3})*(${deck - num - 3}/${deck - 4})*(${deck - num - 4}/${deck - 5}) * 6 = `;
+                    b = ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((deck - num - 2) / (deck - 3)) * ((deck - num - 3) / (deck - 4)) * ((deck - num - 4) / (deck - 5)) * 6;
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3})*(${deck - num - 2}/${deck - 4})*(${deck - num - 3}/${deck - 5}) * 15 = `;
+                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * ((deck - num - 2) / (deck - 4)) * ((deck - num - 3) / (deck - 5)) * 15;
+                    e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4})*(${deck - num - 2}/${deck - 5}) * 20 = `;
+                    f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4)) * ((deck - num - 2) / (deck - 5)) * 20;
+                    g = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4})*(${deck - num - 1}/${deck - 5}) * 15 = `;
+                    h = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
+                    atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
+                } else if (successfulDraws == 2) {
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3})*(${deck - num - 2}/${deck - 4})*(${deck - num - 3}/${deck - 5}) * 15 = `;
+                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * ((deck - num - 2) / (deck - 4)) * ((deck - num - 3) / (deck - 5)) * 15;
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4})*(${deck - num - 2}/${deck - 5}) * 20 = `;
+                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4)) * ((deck - num - 2) / (deck - 5)) * 20;
+                    e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4})*(${deck - num - 1}/${deck - 5}) * 15 = `;
+                    f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
+                    atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
+                } else if (successfulDraws == 3) {
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4})*(${deck - num - 2}/${deck - 5}) * 20 = `;
+                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4)) * ((deck - num - 2) / (deck - 5)) * 20;
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4})*(${deck - num - 1}/${deck - 5}) * 15 = `;
+                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
+                    atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
+                } else if (successfulDraws == 4) {
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4})*(${deck - num - 1}/${deck - 5}) * 15 = `;
+                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
                     atLeastStats = a + b
                 }
             }
