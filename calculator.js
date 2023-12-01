@@ -278,13 +278,15 @@ function calculateProbability() {
                 }
             } else if (totalDraws == 3) {
                 if (successfulDraws == 1) {
-                    a = ((deckSize - num) / deckSize) * ((deckSize - num - 1) / (deckSize - 1)) * ((deckSize - num - 2) / (deckSize - 2))
-                    b = `(${deckSize - num}/${deckSize})*(${deckSize - num - 1}/${deckSize - 1})*(${deckSize - num - 2}/${deckSize - 2}) = ` + a;
-                    atLeastStats = `${b}\n1 - ${a} = ${1 - a}`
+                    a = `(${num}/${deckSize})*(${deckSize-num}/${deckSize-1})*(${deckSize-num-1}/${deckSize-2}) + (${deckSize-num}/${deckSize})*(${num}/${deckSize-1})*(${deckSize-num-1}/${deckSize-2}) + (${deckSize-num}/${deckSize})*(${deckSize-num-1}/${deckSize-1})*(${num}/${deckSize-2}) = `;
+                    b = (num / deckSize) * ((deckSize-num)/(deckSize-1)) * ((deckSize-num-1)/(deckSize-2)) + ((deckSize-num) / deckSize) * ((num)/(deckSize-1)) * ((deckSize-num-1)/(deckSize-2)) + ((deckSize-num) / deckSize) * ((deckSize-num-1)/(deckSize-1)) * ((num)/(deckSize-2));
+                    c = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${deckSize-num}/${deckSize-2}) + (${num}/${deckSize})*(${deckSize-num}/${deckSize-1})*(${num-1}/${deckSize-2}) + (${deckSize-num}/${deckSize})*(${num}/${deckSize-1})*(${num - 1}/${deckSize-2}) + (${num}/${deckSize})*(${num-1}/${deckSize-1})*(${num-2}/${deckSize-2}) = `;
+                    d = (num / deckSize) * ((num-1) / (deckSize-1)) * ((deckSize-num) / (deckSize-2)) + (num / deckSize) * ((deckSize-num) / (deckSize-1)) * ((num-1) / (deckSize-2)) + ((deckSize-num) / deckSize) * (num / (deckSize-1)) * ((num - 1) / (deckSize-2)) + ((num)/(deckSize)) * ((num-1)/(deckSize-1)) * ((num-2)/(deckSize-2));
+                    atLeastStats = a + b + '\n' + c + d + '\n' + `${b} + ${d} = ` + (b + d)
                 } else if (successfulDraws == 2) {
-                    a = (num / deckSize) * ((num-1) / (deckSize-1)) * ((deckSize-num) / (deckSize-2)) + (num / deckSize) * ((deckSize-num) / (deckSize-1)) * ((num-1) / (deckSize-2)) + ((deckSize-num) / deckSize) * (num / (deckSize-1)) * ((num - 1) / (deckSize-2));
-                    b = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${deckSize-num}/${deckSize-2}) + (${num}/${deckSize})*(${deckSize-num}/${deckSize-1})*(${num-1}/${deckSize-2}) + (${deckSize-num}/${deckSize})*(${num}/${deckSize-1})*(${num - 1}/${deckSize-2}) = ` + a;
-                    atLeastStats = b
+                    a = (num / deckSize) * ((num-1) / (deckSize-1)) * ((deckSize-num) / (deckSize-2)) + (num / deckSize) * ((deckSize-num) / (deckSize-1)) * ((num-1) / (deckSize-2)) + ((deckSize-num) / deckSize) * (num / (deckSize-1)) * ((num - 1) / (deckSize-2)) + ((num)/(deckSize)) * ((num-1)/(deckSize-1)) * ((num-2)/(deckSize-2));
+                    b = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${deckSize-num}/${deckSize-2}) + (${num}/${deckSize})*(${deckSize-num}/${deckSize-1})*(${num-1}/${deckSize-2}) + (${deckSize-num}/${deckSize})*(${num}/${deckSize-1})*(${num - 1}/${deckSize-2}) + (${num}/${deckSize})*(${num-1}/${deckSize-1})*(${num-2}/${deckSize-2}) = `;
+                    atLeastStats = b + a
                 } else if (successfulDraws == 3) {
                     atLeastStats = `(${num}/${deckSize})*(${num-1}/${deckSize - 1})*(${num-2}/${deckSize - 2}) = ` + (num / deckSize) * ((num-1) / (deckSize - 1)) * ((num-2) / (deckSize - 2));
                 }
@@ -292,15 +294,17 @@ function calculateProbability() {
 
             } else if (totalDraws == 4) {
                 if (successfulDraws == 1) {
-                    a = ((deckSize - num) / deckSize) * ((deckSize - num - 1) / (deckSize - 1)) * ((deckSize - num - 2) / (deckSize - 2))
-                    b = `(${deckSize - num}/${deckSize})*(${deckSize - num - 1}/${deckSize - 1})*(${deckSize - num - 2}/${deckSize - 2}) = ` + a;
-                    atLeastStats = `${b}\n1 - ${a} = ${1 - a}`
+                    // a = `(${}/${})*(${}/${})*(${}/${})*(${}/${})`
+                    // b = (()/())*(()/())*(()/())*(()/())
                 } else if (successfulDraws == 2) {
-                    a = (num / deckSize) * ((num-1) / (deckSize-1)) * ((deckSize-num) / (deckSize-2)) + (num / deckSize) * ((deckSize-num) / (deckSize-1)) * ((num-1) / (deckSize-2)) + ((deckSize-num) / deckSize) * (num / (deckSize-1)) * ((num - 1) / (deckSize-2));
-                    b = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${deckSize-num}/${deckSize-2}) + (${num}/${deckSize})*(${deckSize-num}/${deckSize-1})*(${num-1}/${deckSize-2}) + (${deckSize-num}/${deckSize})*(${num}/${deckSize-1})*(${num - 1}/${deckSize-2}) = ` + a;
-                    atLeastStats = b
+                    // a = `(${}/${})*(${}/${})*(${}/${})*(${}/${})`
+                    // b = (()/())*(()/())*(()/())*(()/())
                 } else if (successfulDraws == 3) {
-                    atLeastStats = `(${num}/${deckSize})*(${num-1}/${deckSize - 1})*(${num-2}/${deckSize - 2}) = ` + (num / deckSize) * ((num-1) / (deckSize - 1)) * ((num-2) / (deckSize - 2));
+                    // a = `(${}/${})*(${}/${})*(${}/${})*(${}/${})`
+                    // b = (()/())*(()/())*(()/())*(()/())
+                } else if (successfulDraws == 4) {
+                    a = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${num-2}/${deckSize-2})*(${num-3}/${deckSize-3}) = `
+                    b = (()/())*(()/())*(()/())*(()/())
                 }
             }
 
