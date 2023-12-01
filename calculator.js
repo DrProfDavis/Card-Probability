@@ -5,6 +5,7 @@ var result = ''
 var stats = ''
 var atLeastStats = ''
 var exactness = ''
+const deckSize = 52;
 
 function calculateProbability() {
     const totalDraws = document.getElementById('totalDraws').value;
@@ -12,8 +13,6 @@ function calculateProbability() {
     const exactDraws = document.getElementById('exactDraws').value.toUpperCase();
     const cardReplacement = document.getElementById('cardReplacement').value.toUpperCase();
     const selectedCard = document.getElementById('selectedCard').value.toUpperCase();
-    const deckSize = 52;
-
     if (exactDraws == 'NO') {
         exactness = 'at least'
     } else if (exactDraws == 'YES') {
@@ -23,16 +22,13 @@ function calculateProbability() {
         num = 13
         if (successfulDraws > 4) {
             result = `You cannot have more than 4 successful draws`
-            // stats = ``
         } else {
             if (totalDraws < successfulDraws) {
                 result = `You cannot have more successful draws than total draws`
-                // stats = ``
             } else {
                 if (cardReplacement == 'NO') {
                     if (totalDraws > 6) {
                         result = `Please only have 6 or fewer total draws`
-                        // stats = ``
                     } else {
                         result = `The probability of drawing ${exactness} ${successfulDraws} ${selectedCard}(s) in ${totalDraws} draw(s) without card replacement:`;
                         if (totalDraws == 1) {
@@ -87,7 +83,6 @@ function calculateProbability() {
                 else if (cardReplacement == 'YES') {
                     if (totalDraws > 6) {
                         result = `Please only have 6 or fewer total draws`
-                        // stats = ``
                     } else {
                         result = `The probability of drawing ${exactness} ${successfulDraws} ${selectedCard}(s) in ${totalDraws} draw(s) with card replacement:`;
                         if (totalDraws == 1) {
@@ -148,16 +143,13 @@ function calculateProbability() {
         num = 4
         if (successfulDraws > 4) {
             result = `You cannot have more than 4 successful draws`
-            // stats = ``
         } else {
             if (totalDraws < successfulDraws) {
                 result = `You cannot have more successful draws than total draws`
-                // stats = ``
             } else {
                 if (cardReplacement == 'NO') {
                     if (totalDraws > 6) {
                         result = `Please only have 6 or fewer total draws`
-                        // stats = ``
                     } else {
                         result = `The probability of drawing ${exactness} ${successfulDraws} ${selectedCard}(s) in ${totalDraws} draw(s) without card replacement:`;
                         if (totalDraws == 1) {
@@ -212,7 +204,6 @@ function calculateProbability() {
                 else if (cardReplacement == 'YES') {
                     if (totalDraws > 6) {
                         result = `Please only have 6 or fewer total draws`
-                        // stats = ``
                     } else {
                         result = `The probability of drawing ${exactness} ${successfulDraws} ${selectedCard}(s) in ${totalDraws} draw(s) with card replacement:`;
                         if (totalDraws == 1) {
@@ -274,6 +265,49 @@ function calculateProbability() {
         result = `Please enter a valid card or suit`
     }
     if (exactDraws == 'NO') {
+        if (cardReplacement == 'NO') {
+            if (totalDraws == 1) {
+                atLeastStats = `(${num}/${deckSize}) = ` + (num / deckSize);
+            } else if (totalDraws == 2) {
+                if (successfulDraws == 1) {
+                    a = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1}) + (${deckSize - num}/${deckSize - 1})*(${num}/${deckSize}) + (${num}/${deckSize})*(${num - 1}/${deckSize - 1}) = `;
+                    b = ((num / deckSize) * ((deckSize - num) / (deckSize - 1)))  + ((deckSize - num) / ((deckSize - 1)) * (num / deckSize)) + ((num / deckSize) * ((num - 1) / (deckSize - 1)));
+                    atLeastStats = a + b;
+                } else if (successfulDraws == 2) {
+                    atLeastStats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1));
+                }
+            } else if (totalDraws == 3) {
+                if (successfulDraws == 1) {
+                    a = ((deckSize - num) / deckSize) * ((deckSize - num - 1) / (deckSize - 1)) * ((deckSize - num - 2) / (deckSize - 2))
+                    b = `(${deckSize - num}/${deckSize})*(${deckSize - num - 1}/${deckSize - 1})*(${deckSize - num - 2}/${deckSize - 2}) = ` + a;
+                    atLeastStats = `${b}\n1 - ${a} = ${1 - a}`
+                } else if (successfulDraws == 2) {
+                    a = (num / deckSize) * ((num-1) / (deckSize-1)) * ((deckSize-num) / (deckSize-2)) + (num / deckSize) * ((deckSize-num) / (deckSize-1)) * ((num-1) / (deckSize-2)) + ((deckSize-num) / deckSize) * (num / (deckSize-1)) * ((num - 1) / (deckSize-2));
+                    b = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${deckSize-num}/${deckSize-2}) + (${num}/${deckSize})*(${deckSize-num}/${deckSize-1})*(${num-1}/${deckSize-2}) + (${deckSize-num}/${deckSize})*(${num}/${deckSize-1})*(${num - 1}/${deckSize-2}) = ` + a;
+                    atLeastStats = b
+                } else if (successfulDraws == 3) {
+                    atLeastStats = `(${num}/${deckSize})*(${num-1}/${deckSize - 1})*(${num-2}/${deckSize - 2}) = ` + (num / deckSize) * ((num-1) / (deckSize - 1)) * ((num-2) / (deckSize - 2));
+                }
+
+
+            } else if (totalDraws == 4) {
+                if (successfulDraws == 1) {
+                    a = ((deckSize - num) / deckSize) * ((deckSize - num - 1) / (deckSize - 1)) * ((deckSize - num - 2) / (deckSize - 2))
+                    b = `(${deckSize - num}/${deckSize})*(${deckSize - num - 1}/${deckSize - 1})*(${deckSize - num - 2}/${deckSize - 2}) = ` + a;
+                    atLeastStats = `${b}\n1 - ${a} = ${1 - a}`
+                } else if (successfulDraws == 2) {
+                    a = (num / deckSize) * ((num-1) / (deckSize-1)) * ((deckSize-num) / (deckSize-2)) + (num / deckSize) * ((deckSize-num) / (deckSize-1)) * ((num-1) / (deckSize-2)) + ((deckSize-num) / deckSize) * (num / (deckSize-1)) * ((num - 1) / (deckSize-2));
+                    b = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${deckSize-num}/${deckSize-2}) + (${num}/${deckSize})*(${deckSize-num}/${deckSize-1})*(${num-1}/${deckSize-2}) + (${deckSize-num}/${deckSize})*(${num}/${deckSize-1})*(${num - 1}/${deckSize-2}) = ` + a;
+                    atLeastStats = b
+                } else if (successfulDraws == 3) {
+                    atLeastStats = `(${num}/${deckSize})*(${num-1}/${deckSize - 1})*(${num-2}/${deckSize - 2}) = ` + (num / deckSize) * ((num-1) / (deckSize - 1)) * ((num-2) / (deckSize - 2));
+                }
+            }
+
+
+        } else if (cardReplacement == 'YES') {
+            // STUFF GOES HERE
+        }
 
         document.getElementById('result').innerText = result
         document.getElementById('stats').innerText = atLeastStats
