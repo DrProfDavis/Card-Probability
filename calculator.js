@@ -5,7 +5,7 @@ var result = ''
 var stats = ''
 var atLeastStats = ''
 var exactness = ''
-const deckSize = 52;
+const deck = 52;
 
 function calculateProbability() {
     const totalDraws = document.getElementById('totalDraws').value;
@@ -32,50 +32,50 @@ function calculateProbability() {
                     } else {
                         result = `The probability of drawing ${exactness} ${successfulDraws} ${selectedCard}(s) in ${totalDraws} draw(s) without card replacement:`;
                         if (totalDraws == 1) {
-                            stats = `(${num}/${deckSize}) = ` + (num / deckSize);
+                            stats = `(${num}/${deck}) = ` + (num / deck);
                         } else if (totalDraws == 2) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize - 1));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck - 1}) = ` + (num / deck) * ((deck - num) / (deck - 1));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1}) = ` + (num / deck) * ((num - 1) / (deck - 1));
                             }
                         } else if (totalDraws == 3) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${deckSize - num - 1}/${deckSize - 2}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize - 1)) * ((deckSize - num - 1) / (deckSize - 2));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2}) = ` + (num / deck) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
                             }
                         } else if (totalDraws == 4) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${deckSize - num - 1}/${deckSize - 2})*(${deckSize - num - 2}/${deckSize - 3}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize - 1)) * ((deckSize - num - 1) / (deckSize - 2)) * ((deckSize - num - 2) / (deckSize - 3));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${deck - num - 2}/${deck - 3}) = ` + (num / deck) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((deck - num - 2) / (deck - 3));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2})*(${deckSize - num - 1}/${deckSize - 3}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2)) * ((deckSize - num - 1) / (deckSize - 3));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3));
                             } else if (successfulDraws == 3) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${deckSize - num}/${deckSize - 3}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((deckSize - num) / (deckSize - 3));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${num - 3}/${deckSize - 3}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((num - 3) / (deckSize - 3));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                             }
                         } else if (totalDraws == 5) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${deckSize - num - 1}/${deckSize - 2})*(${deckSize - num - 2}/${deckSize - 3})*(${deckSize - num - 3}/${deckSize - 4}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize - 1)) * ((deckSize - num - 1) / (deckSize - 2)) * ((deckSize - num - 2) / (deckSize - 3)) * ((deckSize - num - 3) / (deckSize - 4));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${deck - num - 2}/${deck - 3})*(${deck - num - 3}/${deck - 4}) = ` + (num / deck) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((deck - num - 2) / (deck - 3)) * ((deck - num - 3) / (deck - 4));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2})*(${deckSize - num - 1}/${deckSize - 3})*(${deckSize - num - 2}/${deckSize - 4}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2)) * ((deckSize - num - 1) / (deckSize - 3)) * ((deckSize - num - 2) / (deckSize - 4));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3})*(${deck - num - 2}/${deck - 4}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * ((deck - num - 2) / (deck - 4));
                             } else if (successfulDraws == 3) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${deckSize - num}/${deckSize - 3})*(${deckSize - num - 1}/${deckSize - 4}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((deckSize - num) / (deckSize - 3)) * ((deckSize - num - 1) / (deckSize - 4));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${num - 3}/${deckSize - 3})*(${deckSize - num}/${deckSize - 4}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((num - 3) / (deckSize - 3)) * ((deckSize - num) / (deckSize - 4));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4));
                             }
                         } else if (totalDraws == 6) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${deckSize - num - 1}/${deckSize - 2})*(${deckSize - num - 2}/${deckSize - 3})*(${deckSize - num - 3}/${deckSize - 4})*(${deckSize - num - 4}/${deckSize - 5}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize - 1)) * ((deckSize - num - 1) / (deckSize - 2)) * ((deckSize - num - 2) / (deckSize - 3)) * ((deckSize - num - 3) / (deckSize - 4)) * ((deckSize - num - 4) / (deckSize - 5));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${deck - num - 2}/${deck - 3})*(${deck - num - 3}/${deck - 4})*(${deck - num - 4}/${deck - 5}) = ` + (num / deck) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((deck - num - 2) / (deck - 3)) * ((deck - num - 3) / (deck - 4)) * ((deck - num - 4) / (deck - 5));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2})*(${deckSize - num - 1}/${deckSize - 3})*(${deckSize - num - 2}/${deckSize - 4})*(${deckSize - num - 3}/${deckSize - 5}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2)) * ((deckSize - num - 1) / (deckSize - 3)) * ((deckSize - num - 2) / (deckSize - 4)) * ((deckSize - num - 3) / (deckSize - 5));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3})*(${deck - num - 2}/${deck - 4})*(${deck - num - 3}/${deck - 5}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * ((deck - num - 2) / (deck - 4)) * ((deck - num - 3) / (deck - 5));
                             } else if (successfulDraws == 3) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${deckSize - num}/${deckSize - 3})*(${deckSize - num - 1}/${deckSize - 4})*(${deckSize - num - 2}/${deckSize - 5}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((deckSize - num) / (deckSize - 3)) * ((deckSize - num - 1) / (deckSize - 4)) * ((deckSize - num - 2) / (deckSize - 5));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4})*(${deck - num - 2}/${deck - 5}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4)) * ((deck - num - 2) / (deck - 5));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${num - 3}/${deckSize - 3})*(${deckSize - num}/${deckSize - 4})*(${deckSize - num - 1}/${deckSize - 5}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((num - 3) / (deckSize - 3)) * ((deckSize - num) / (deckSize - 4)) * ((deckSize - num - 1) / (deckSize - 5));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4})*(${deck - num - 1}/${deck - 5}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5));
                             }
                         }
                     }
@@ -86,50 +86,50 @@ function calculateProbability() {
                     } else {
                         result = `The probability of drawing ${exactness} ${successfulDraws} ${selectedCard}(s) in ${totalDraws} draw(s) with card replacement:`;
                         if (totalDraws == 1) {
-                            stats = `(${num}/${deckSize}) = ` + (num / deckSize);
+                            stats = `(${num}/${deck}) = ` + (num / deck);
                         } else if (totalDraws == 2) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((deck - num) / (deck));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck}) = ` + (num / deck) * ((num) / (deck));
                             }
                         } else if (totalDraws == 3) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((deck - num) / (deck));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck));
                             }
                         } else if (totalDraws == 4) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 3) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck));
                             }
                         } else if (totalDraws == 5) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 3) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck));
                             }
                         } else if (totalDraws == 6) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 3) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             }
                         }
                     }
@@ -153,50 +153,50 @@ function calculateProbability() {
                     } else {
                         result = `The probability of drawing ${exactness} ${successfulDraws} ${selectedCard}(s) in ${totalDraws} draw(s) without card replacement:`;
                         if (totalDraws == 1) {
-                            stats = `(${num}/${deckSize}) = ` + (num / deckSize);
+                            stats = `(${num}/${deck}) = ` + (num / deck);
                         } else if (totalDraws == 2) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize - 1));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck - 1}) = ` + (num / deck) * ((deck - num) / (deck - 1));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1}) = ` + (num / deck) * ((num - 1) / (deck - 1));
                             }
                         } else if (totalDraws == 3) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${deckSize - num - 1}/${deckSize - 2}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize - 1)) * ((deckSize - num - 1) / (deckSize - 2));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2}) = ` + (num / deck) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
                             }
                         } else if (totalDraws == 4) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${deckSize - num - 1}/${deckSize - 2})*(${deckSize - num - 2}/${deckSize - 3}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize - 1)) * ((deckSize - num - 1) / (deckSize - 2)) * ((deckSize - num - 2) / (deckSize - 3));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${deck - num - 2}/${deck - 3}) = ` + (num / deck) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((deck - num - 2) / (deck - 3));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2})*(${deckSize - num - 1}/${deckSize - 3}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2)) * ((deckSize - num - 1) / (deckSize - 3));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3));
                             } else if (successfulDraws == 3) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${deckSize - num}/${deckSize - 3}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((deckSize - num) / (deckSize - 3));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${num - 3}/${deckSize - 3}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((num - 3) / (deckSize - 3));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                             }
                         } else if (totalDraws == 5) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${deckSize - num - 1}/${deckSize - 2})*(${deckSize - num - 2}/${deckSize - 3})*(${deckSize - num - 3}/${deckSize - 4}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize - 1)) * ((deckSize - num - 1) / (deckSize - 2)) * ((deckSize - num - 2) / (deckSize - 3)) * ((deckSize - num - 3) / (deckSize - 4));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${deck - num - 2}/${deck - 3})*(${deck - num - 3}/${deck - 4}) = ` + (num / deck) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((deck - num - 2) / (deck - 3)) * ((deck - num - 3) / (deck - 4));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2})*(${deckSize - num - 1}/${deckSize - 3})*(${deckSize - num - 2}/${deckSize - 4}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2)) * ((deckSize - num - 1) / (deckSize - 3)) * ((deckSize - num - 2) / (deckSize - 4));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3})*(${deck - num - 2}/${deck - 4}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * ((deck - num - 2) / (deck - 4));
                             } else if (successfulDraws == 3) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${deckSize - num}/${deckSize - 3})*(${deckSize - num - 1}/${deckSize - 4}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((deckSize - num) / (deckSize - 3)) * ((deckSize - num - 1) / (deckSize - 4));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${num - 3}/${deckSize - 3})*(${deckSize - num}/${deckSize - 4}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((num - 3) / (deckSize - 3)) * ((deckSize - num) / (deckSize - 4));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4));
                             }
                         } else {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${deckSize - num - 1}/${deckSize - 2})*(${deckSize - num - 2}/${deckSize - 3})*(${deckSize - num - 3}/${deckSize - 4})*(${deckSize - num - 4}/${deckSize - 5}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize - 1)) * ((deckSize - num - 1) / (deckSize - 2)) * ((deckSize - num - 2) / (deckSize - 3)) * ((deckSize - num - 3) / (deckSize - 4)) * ((deckSize - num - 4) / (deckSize - 5));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${deck - num - 2}/${deck - 3})*(${deck - num - 3}/${deck - 4})*(${deck - num - 4}/${deck - 5}) = ` + (num / deck) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((deck - num - 2) / (deck - 3)) * ((deck - num - 3) / (deck - 4)) * ((deck - num - 4) / (deck - 5));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2})*(${deckSize - num - 1}/${deckSize - 3})*(${deckSize - num - 2}/${deckSize - 4})*(${deckSize - num - 3}/${deckSize - 5}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2)) * ((deckSize - num - 1) / (deckSize - 3)) * ((deckSize - num - 2) / (deckSize - 4)) * ((deckSize - num - 3) / (deckSize - 5));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3})*(${deck - num - 2}/${deck - 4})*(${deck - num - 3}/${deck - 5}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * ((deck - num - 2) / (deck - 4)) * ((deck - num - 3) / (deck - 5));
                             } else if (successfulDraws == 3) {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${deckSize - num}/${deckSize - 3})*(${deckSize - num - 1}/${deckSize - 4})*(${deckSize - num - 2}/${deckSize - 5}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((deckSize - num) / (deckSize - 3)) * ((deckSize - num - 1) / (deckSize - 4)) * ((deckSize - num - 2) / (deckSize - 5));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4})*(${deck - num - 2}/${deck - 5}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4)) * ((deck - num - 2) / (deck - 5));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${num - 3}/${deckSize - 3})*(${deckSize - num}/${deckSize - 4})*(${deckSize - num - 1}/${deckSize - 5}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((num - 3) / (deckSize - 3)) * ((deckSize - num) / (deckSize - 4)) * ((deckSize - num - 1) / (deckSize - 5));
+                                stats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4})*(${deck - num - 1}/${deck - 5}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5));
                             }
                         }
                     }
@@ -207,50 +207,50 @@ function calculateProbability() {
                     } else {
                         result = `The probability of drawing ${exactness} ${successfulDraws} ${selectedCard}(s) in ${totalDraws} draw(s) with card replacement:`;
                         if (totalDraws == 1) {
-                            stats = `(${num}/${deckSize}) = ` + (num / deckSize);
+                            stats = `(${num}/${deck}) = ` + (num / deck);
                         } else if (totalDraws == 2) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((deck - num) / (deck));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck}) = ` + (num / deck) * ((num) / (deck));
                             }
                         } else if (totalDraws == 3) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((deck - num) / (deck));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck));
                             }
                         } else if (totalDraws == 4) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 3) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck));
                             }
                         } else if (totalDraws == 5) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 3) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck));
                             }
                         } else if (totalDraws == 6) {
                             if (successfulDraws == 1) {
-                                stats = `(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 2) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else if (successfulDraws == 3) {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             } else {
-                                stats = `(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${num}/${deckSize})*(${deckSize - num}/${deckSize})*(${deckSize - num}/${deckSize}) = ` + (num / deckSize) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((num) / (deckSize)) * ((deckSize - num) / (deckSize)) * ((deckSize - num) / (deckSize));
+                                stats = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) = ` + (num / deck) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck));
                             }
                         }
                     }
@@ -267,51 +267,58 @@ function calculateProbability() {
     if (exactDraws == 'NO') {
         if (cardReplacement == 'NO') {
             if (totalDraws == 1) {
-                atLeastStats = `(${num}/${deckSize}) = ` + (num / deckSize);
+                atLeastStats = `(${num}/${deck}) = ` + (num / deck);
             } else if (totalDraws == 2) {
                 if (successfulDraws == 1) {
-                    a = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1}) + (${deckSize - num}/${deckSize - 1})*(${num}/${deckSize}) + (${num}/${deckSize})*(${num - 1}/${deckSize - 1}) = `;
-                    b = ((num / deckSize) * ((deckSize - num) / (deckSize - 1))) + ((deckSize - num) / ((deckSize - 1)) * (num / deckSize)) + ((num / deckSize) * ((num - 1) / (deckSize - 1)));
+                    a = `(${num}/${deck})*(${deck - num}/${deck - 1}) + (${deck - num}/${deck - 1})*(${num}/${deck}) + (${num}/${deck})*(${num - 1}/${deck - 1}) = `;
+                    b = ((num / deck) * ((deck - num) / (deck - 1))) + ((deck - num) / ((deck - 1)) * (num / deck)) + ((num / deck) * ((num - 1) / (deck - 1)));
                     atLeastStats = a + b;
                 } else if (successfulDraws == 2) {
-                    atLeastStats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1));
+                    atLeastStats = `(${num}/${deck})*(${num - 1}/${deck - 1}) = ` + (num / deck) * ((num - 1) / (deck - 1));
                 }
             } else if (totalDraws == 3) {
                 if (successfulDraws == 1) {
-                    a = `(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${deckSize - num - 1}/${deckSize - 2}) + (${deckSize - num}/${deckSize})*(${num}/${deckSize - 1})*(${deckSize - num - 1}/${deckSize - 2}) + (${deckSize - num}/${deckSize})*(${deckSize - num - 1}/${deckSize - 1})*(${num}/${deckSize - 2}) = `;
-                    b = (num / deckSize) * ((deckSize - num) / (deckSize - 1)) * ((deckSize - num - 1) / (deckSize - 2)) + ((deckSize - num) / deckSize) * ((num) / (deckSize - 1)) * ((deckSize - num - 1) / (deckSize - 2)) + ((deckSize - num) / deckSize) * ((deckSize - num - 1) / (deckSize - 1)) * ((num) / (deckSize - 2));
-                    c = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2}) + (${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${num - 1}/${deckSize - 2}) + (${deckSize - num}/${deckSize})*(${num}/${deckSize - 1})*(${num - 1}/${deckSize - 2}) + (${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2}) = `;
-                    d = (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2)) + (num / deckSize) * ((deckSize - num) / (deckSize - 1)) * ((num - 1) / (deckSize - 2)) + ((deckSize - num) / deckSize) * (num / (deckSize - 1)) * ((num - 1) / (deckSize - 2)) + ((num) / (deckSize)) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2));
+                    a = `(${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2}) + (${deck - num}/${deck})*(${num}/${deck - 1})*(${deck - num - 1}/${deck - 2}) + (${deck - num}/${deck})*(${deck - num - 1}/${deck - 1})*(${num}/${deck - 2}) = `;
+                    b = (num / deck) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) + ((deck - num) / deck) * ((num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) + ((deck - num) / deck) * ((deck - num - 1) / (deck - 1)) * ((num) / (deck - 2));
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2}) + (${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2}) + (${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2}) + (${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = `;
+                    d = (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) + (num / deck) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) + ((deck - num) / deck) * (num / (deck - 1)) * ((num - 1) / (deck - 2)) + ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
                     atLeastStats = a + b + '\n' + c + d + '\n' + `${b} + ${d} = ` + (b + d)
                 } else if (successfulDraws == 2) {
-                    a = (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2)) + (num / deckSize) * ((deckSize - num) / (deckSize - 1)) * ((num - 1) / (deckSize - 2)) + ((deckSize - num) / deckSize) * (num / (deckSize - 1)) * ((num - 1) / (deckSize - 2)) + ((num) / (deckSize)) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2));
-                    b = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2}) + (${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${num - 1}/${deckSize - 2}) + (${deckSize - num}/${deckSize})*(${num}/${deckSize - 1})*(${num - 1}/${deckSize - 2}) + (${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2}) = `;
+                    a = (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) + (num / deck) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) + ((deck - num) / deck) * (num / (deck - 1)) * ((num - 1) / (deck - 2)) + ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
+                    b = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2}) + (${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2}) + (${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2}) + (${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = `;
                     atLeastStats = b + a
                 } else if (successfulDraws == 3) {
-                    atLeastStats = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2}) = ` + (num / deckSize) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2));
+                    atLeastStats = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = ` + (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
                 }
 
             } else if (totalDraws == 4) {
                 if (successfulDraws == 1) {
-                    // a = `(${}/${deckSize})*(${}/${deckSize-1})*(${}/${deckSize-2})*(${}/${deckSize-3})`
-                    // b = (()/(deckSize))*(()/(deckSize-1))*(()/(deckSize-2))*(()/(deckSize-3))
+                    a = `(${num}/${deck})*(${deck - num}/${deck-1})*(${deck - num - 1}/${deck-2})*(${deck - num - 2}/${deck-3}) + (${deck - num}/${deck})*(${num}/${deck-1})*(${deck - num - 1}/${deck-2})*(${deck - num - 2}/${deck-3}) + \n(${deck - num}/${deck})*(${deck - num - 1}/${deck-1})*(${num}/${deck-2})*(${deck - num - 2}/${deck-3}) + (${deck - num}/${deck})*(${deck - num - 1}/${deck-1})*(${deck - num - 2}/${deck-2})*(${num}/${deck-3}) = `
+                    b = ((num)/(deck))*((deck - num)/(deck-1))*((deck - num - 1)/(deck-2))*((deck - num - 2)/(deck-3)) + ((deck - num)/(deck))*((num)/(deck-1))*((deck - num - 1)/(deck-2))*((deck - num - 2)/(deck-3)) + ((deck - num)/(deck))*((deck - num - 1)/(deck-1))*((num)/(deck-2))*((deck - num - 2)/(deck-3)) + ((deck - num)/(deck))*((deck - num - 1)/(deck-1))*((deck - num - 2)/(deck-2))*((num)/(deck-3))
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3}) + (${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2})*(${deck - num - 1}/${deck - 3}) + \n(${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2})*(${deck - num - 1}/${deck - 3}) + (${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${num - 1}/${deck - 3}) + \n(${deck - num}/${deck})*(${num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${num - 1}/${deck - 3}) + (${deck - num}/${deck})*(${deck - num - 1}/${deck - 1})*(${num}/${deck - 2})*(${num - 1}/${deck - 3}) = `;
+                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((num - 1) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((num - 1) / (deck - 3)) + ((deck - num) / (deck)) * ((deck - num - 1) / (deck - 1)) * ((num) / (deck - 2)) * ((num - 1) / (deck - 3));
+                    e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) + (${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${num - 2}/${deck - 3}) + \n(${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2})*(${num - 2}/${deck - 3}) + (${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2})*(${num - 2}/${deck - 3}) = `;
+                    f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) + ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((num - 2) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((num - 2) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((num - 2) / (deck - 3));
+                    g = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
+                    h = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
+                    atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
                 } else if (successfulDraws == 2) {
-                    a = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2})*(${deckSize - num - 1}/${deckSize - 3}) + (${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${num - 1}/${deckSize - 2})*(${deckSize - num - 1}/${deckSize - 3}) + \n(${deckSize - num}/${deckSize})*(${num}/${deckSize - 1})*(${num - 1}/${deckSize - 2})*(${deckSize - num - 1}/${deckSize - 3}) + (${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${deckSize - num - 1}/${deckSize - 2})*(${num - 1}/${deckSize - 3}) + \n(${deckSize - num}/${deckSize})*(${num}/${deckSize - 1})*(${deckSize - num - 1}/${deckSize - 2})*(${num - 1}/${deckSize - 3}) + (${deckSize - num}/${deckSize})*(${deckSize - num - 1}/${deckSize - 1})*(${num}/${deckSize - 2})*(${num - 1}/${deckSize - 3}) = `;
-                    b = ((num) / (deckSize)) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2)) * ((deckSize - num - 1) / (deckSize - 3)) + ((num) / (deckSize)) * ((deckSize - num) / (deckSize - 1)) * ((num - 1) / (deckSize - 2)) * ((deckSize - num - 1) / (deckSize - 3)) + ((deckSize - num) / (deckSize)) * ((num) / (deckSize - 1)) * ((num - 1) / (deckSize - 2)) * ((deckSize - num - 1) / (deckSize - 3)) + ((num) / (deckSize)) * ((deckSize - num) / (deckSize - 1)) * ((deckSize - num - 1) / (deckSize - 2)) * ((num - 1) / (deckSize - 3)) + ((deckSize - num) / (deckSize)) * ((num) / (deckSize - 1)) * ((deckSize - num - 1) / (deckSize - 2)) * ((num - 1) / (deckSize - 3)) + ((deckSize - num) / (deckSize)) * ((deckSize - num - 1) / (deckSize - 1)) * ((num) / (deckSize - 2)) * ((num - 1) / (deckSize - 3));
-                    c = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${deckSize - num}/${deckSize - 3}) + (${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2})*(${num - 2}/${deckSize - 3}) + \n(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${num - 1}/${deckSize - 2})*(${num - 2}/${deckSize - 3}) + (${deckSize - num}/${deckSize})*(${num}/${deckSize - 1})*(${num - 1}/${deckSize - 2})*(${num - 2}/${deckSize - 3}) = `;
-                    d = ((num) / (deckSize)) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((deckSize - num) / (deckSize - 3)) + ((num) / (deckSize)) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2)) * ((num - 2) / (deckSize - 3)) + ((num) / (deckSize)) * ((deckSize - num) / (deckSize - 1)) * ((num - 1) / (deckSize - 2)) * ((num - 2) / (deckSize - 3)) + ((deckSize - num) / (deckSize)) * ((num) / (deckSize - 1)) * ((num - 1) / (deckSize - 2)) * ((num - 2) / (deckSize - 3));
-                    e = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${num - 3}/${deckSize - 3}) = `;
-                    f = ((num) / (deckSize)) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((num - 3) / (deckSize - 3));
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3}) + (${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2})*(${deck - num - 1}/${deck - 3}) + \n(${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2})*(${deck - num - 1}/${deck - 3}) + (${num}/${deck})*(${deck - num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${num - 1}/${deck - 3}) + \n(${deck - num}/${deck})*(${num}/${deck - 1})*(${deck - num - 1}/${deck - 2})*(${num - 1}/${deck - 3}) + (${deck - num}/${deck})*(${deck - num - 1}/${deck - 1})*(${num}/${deck - 2})*(${num - 1}/${deck - 3}) = `;
+                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((num - 1) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((deck - num - 1) / (deck - 2)) * ((num - 1) / (deck - 3)) + ((deck - num) / (deck)) * ((deck - num - 1) / (deck - 1)) * ((num) / (deck - 2)) * ((num - 1) / (deck - 3));
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) + (${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${num - 2}/${deck - 3}) + \n(${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2})*(${num - 2}/${deck - 3}) + (${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2})*(${num - 2}/${deck - 3}) = `;
+                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) + ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((num - 2) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((num - 2) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((num - 2) / (deck - 3));
+                    e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
+                    f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                     atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
                 } else if (successfulDraws == 3) {
-                    a = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${deckSize - num}/${deckSize - 3}) + (${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${deckSize - num}/${deckSize - 2})*(${num - 2}/${deckSize - 3}) + \n(${num}/${deckSize})*(${deckSize - num}/${deckSize - 1})*(${num - 1}/${deckSize - 2})*(${num - 2}/${deckSize - 3}) + (${deckSize - num}/${deckSize})*(${num}/${deckSize - 1})*(${num - 1}/${deckSize - 2})*(${num - 2}/${deckSize - 3}) = `;
-                    b = ((num) / (deckSize)) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((deckSize - num) / (deckSize - 3)) + ((num) / (deckSize)) * ((num - 1) / (deckSize - 1)) * ((deckSize - num) / (deckSize - 2)) * ((num - 2) / (deckSize - 3)) + ((num) / (deckSize)) * ((deckSize - num) / (deckSize - 1)) * ((num - 1) / (deckSize - 2)) * ((num - 2) / (deckSize - 3)) + ((deckSize - num) / (deckSize)) * ((num) / (deckSize - 1)) * ((num - 1) / (deckSize - 2)) * ((num - 2) / (deckSize - 3));
-                    c = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${num - 3}/${deckSize - 3}) = `;
-                    d = ((num) / (deckSize)) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((num - 3) / (deckSize - 3));
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) + (${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${num - 2}/${deck - 3}) + \n(${num}/${deck})*(${deck - num}/${deck - 1})*(${num - 1}/${deck - 2})*(${num - 2}/${deck - 3}) + (${deck - num}/${deck})*(${num}/${deck - 1})*(${num - 1}/${deck - 2})*(${num - 2}/${deck - 3}) = `;
+                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) + ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((num - 2) / (deck - 3)) + ((num) / (deck)) * ((deck - num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((num - 2) / (deck - 3)) + ((deck - num) / (deck)) * ((num) / (deck - 1)) * ((num - 1) / (deck - 2)) * ((num - 2) / (deck - 3));
+                    c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
+                    d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                     atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 } else if (successfulDraws == 4) {
-                    a = `(${num}/${deckSize})*(${num - 1}/${deckSize - 1})*(${num - 2}/${deckSize - 2})*(${num - 3}/${deckSize - 3}) = `;
-                    b = ((num) / (deckSize)) * ((num - 1) / (deckSize - 1)) * ((num - 2) / (deckSize - 2)) * ((num - 3) / (deckSize - 3));
+                    a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
+                    b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                     atLeastStats = a + b
                 }
             }
