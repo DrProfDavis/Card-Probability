@@ -303,8 +303,9 @@ function calculateProbability() {
                     // a = `(${}/${})*(${}/${})*(${}/${})*(${}/${})`
                     // b = (()/())*(()/())*(()/())*(()/())
                 } else if (successfulDraws == 4) {
-                    a = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${num-2}/${deckSize-2})*(${num-3}/${deckSize-3}) = `
-                    b = (()/())*(()/())*(()/())*(()/())
+                    a = `(${num}/${deckSize})*(${num-1}/${deckSize-1})*(${num-2}/${deckSize-2})*(${num-3}/${deckSize-3}) = `;
+                    b = ((num)/(deckSize))*((num-1)/(deckSize-1))*((num-2)/(deckSize-2))*((num-3)/(deckSize-3));
+                    atLeastStats = a + b
                 }
             }
 
