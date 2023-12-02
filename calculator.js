@@ -5,6 +5,8 @@ var result = ''
 var exactStats = ''
 var atLeastStats = ''
 var exactness = ''
+var atLeastPercent = ''
+var exactPercent = ''
 const deck = 52;
 
 function calculateProbability() {
@@ -33,6 +35,8 @@ function calculateProbability() {
         if (totalDraws == 1) {
             atLeastStats = `(${num}/${deck}) = ` + (num / deck);
             exactStats = `(${num}/${deck}) = ` + (num / deck);
+            atLeastPercent = ((num / deck)*100).toFixed(2)
+            exactPercent = ((num / deck)*100).toFixed(2)
         } else if (totalDraws == 2) {
             if (successfulDraws == 1) {
                 a = `(${num}/${deck})*(${deck - num}/${deck - 1}) * 3 = `;
@@ -41,9 +45,13 @@ function calculateProbability() {
                 d = (num / deck) * ((num - 1) / (deck - 1));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 exactStats = a + b
+                atLeastPercent = ((b + d)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 2) {
                 atLeastStats = `(${num}/${deck})*(${num - 1}/${deck - 1}) = ` + (num / deck) * ((num - 1) / (deck - 1));
                 exactStats = `(${num}/${deck})*(${num - 1}/${deck - 1}) = ` + (num / deck) * ((num - 1) / (deck - 1));
+                atLeastPercent = ((num / deck)*100).toFixed(2)
+                exactPercent = ((num / deck)*100).toFixed(2)
             }
         } else if (totalDraws == 3) {
             if (successfulDraws == 1) {
@@ -55,6 +63,8 @@ function calculateProbability() {
                 f = (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2}) * 3 = `;
                 b = (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * 3;
@@ -62,11 +72,15 @@ function calculateProbability() {
                 d = (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 exactStats = a + b
+                atLeastPercent = ((b + d)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = `;
                 b = (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
                 atLeastStats = a + b
                 exactStats = a + b
+                atLeastPercent = ((b)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             }
         } else if (totalDraws == 4) {
             if (successfulDraws == 1) {
@@ -80,6 +94,8 @@ function calculateProbability() {
                 h = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f + h)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3}) * 6 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * 6;
@@ -89,6 +105,8 @@ function calculateProbability() {
                 f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) * 4 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * 4;
@@ -96,11 +114,15 @@ function calculateProbability() {
                 d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 exactStats = a + b
+                atLeastPercent = ((b + d)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                 atLeastStats = a + b
                 exactStats = a + b
+                atLeastPercent = ((b)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             }
         } else if (totalDraws == 5) {
             if (successfulDraws == 1) {
@@ -114,6 +136,8 @@ function calculateProbability() {
                 h = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f + h)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3})*(${deck - num - 2}/${deck - 4}) * 10 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * ((deck - num - 2) / (deck - 4)) * 10;
@@ -123,6 +147,8 @@ function calculateProbability() {
                 f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4}) * 10 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4)) * 10;
@@ -130,11 +156,15 @@ function calculateProbability() {
                 d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 exactStats = a + b
+                atLeastPercent = ((b + d)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4}) * 5 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
                 atLeastStats = a + b
                 exactStats = a + b
+                atLeastPercent = ((b)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             }
         } else if (totalDraws == 6) {
             if (successfulDraws == 1) {
@@ -148,6 +178,8 @@ function calculateProbability() {
                 h = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f + h)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3})*(${deck - num - 2}/${deck - 4})*(${deck - num - 3}/${deck - 5}) * 15 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * ((deck - num - 2) / (deck - 4)) * ((deck - num - 3) / (deck - 5)) * 15;
@@ -157,6 +189,8 @@ function calculateProbability() {
                 f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4})*(${deck - num - 2}/${deck - 5}) * 20 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4)) * ((deck - num - 2) / (deck - 5)) * 20;
@@ -164,11 +198,15 @@ function calculateProbability() {
                 d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 exactStats = a + b
+                atLeastPercent = ((b + d)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4})*(${deck - num - 1}/${deck - 5}) * 15 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
                 atLeastStats = a + b
                 exactStats = a + b
+                atLeastPercent = ((b)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             }
         }
     }
@@ -176,6 +214,8 @@ function calculateProbability() {
         if (totalDraws == 1) {
             atLeastStats = `(${num}/${deck}) = ` + (num / deck);
             exactStats = `(${num}/${deck}) = ` + (num / deck);
+            atLeastPercent = ((num/deck)*100).toFixed(2)
+            exactPercent = ((num/deck)*100).toFixed(2)
         } else if (totalDraws == 2) {
             if (successfulDraws == 1) {
                 a = `(${num}/${deck})*(${deck - num}/${deck}) * 3 = `;
@@ -184,9 +224,13 @@ function calculateProbability() {
                 d = (num / deck) * ((num) / (deck));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 exactStats = a + b
+                atLeastPercent = ((b + d)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 2) {
                 atLeastStats = `(${num}/${deck})*(${num}/${deck}) = ` + (num / deck) * ((num) / (deck));
                 exactStats = `(${num}/${deck})*(${num}/${deck}) = ` + (num / deck) * ((num) / (deck));
+                atLeastPercent = ((num/deck)*100).toFixed(2)
+                exactPercent = ((num/deck)*100).toFixed(2)
             }
         } else if (totalDraws == 3) {
             if (successfulDraws == 1) {
@@ -198,6 +242,8 @@ function calculateProbability() {
                 f = (num / deck) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) * 3 = `;
                 b = (num / deck) * ((num) / (deck)) * ((deck - num) / (deck)) * 3;
@@ -205,11 +251,15 @@ function calculateProbability() {
                 d = (num / deck) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 exactStats = a + b
+                atLeastPercent = ((b + d)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = `;
                 b = (num / deck) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b
                 exactStats = a + b
+                atLeastPercent = ((b)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             }
         } else if (totalDraws == 4) {
             if (successfulDraws == 1) {
@@ -223,6 +273,8 @@ function calculateProbability() {
                 h = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f + h)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 6 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 6;
@@ -232,6 +284,8 @@ function calculateProbability() {
                 f = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) * 4 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * 4;
@@ -239,11 +293,15 @@ function calculateProbability() {
                 d = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 exactStats = a + b
+                atLeastPercent = ((b + d)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b
                 exactStats = a + b
+                atLeastPercent = ((b)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             }
         } else if (totalDraws == 5) {
             if (successfulDraws == 1) {
@@ -257,6 +315,8 @@ function calculateProbability() {
                 h = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * 5;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f + h)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 10 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 10;
@@ -266,6 +326,8 @@ function calculateProbability() {
                 f = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * 5;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 10 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 10;
@@ -273,11 +335,15 @@ function calculateProbability() {
                 d = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * 5;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 exactStats = a + b
+                atLeastPercent = ((b + d)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) * 5 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * 5;
                 atLeastStats = a + b
                 exactStats = a + b
+                atLeastPercent = ((b)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             }
         } else if (totalDraws == 6) {
             if (successfulDraws == 1) {
@@ -291,6 +357,8 @@ function calculateProbability() {
                 h = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 15;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f + h)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 15 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 15;
@@ -300,6 +368,8 @@ function calculateProbability() {
                 f = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 15;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
                 exactStats = a + b
+                atLeastPercent = ((b + d + f)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 20 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 20;
@@ -307,18 +377,25 @@ function calculateProbability() {
                 d = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 15;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
                 exactStats = a + b
+                atLeastPercent = ((b + d)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 15 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 15;
                 atLeastStats = a + b
                 exactStats = a + b
+                atLeastPercent = ((b)*100).toFixed(2)
+                exactPercent = (b*100).toFixed(2)
             }
         }
     }
     document.getElementById('result').innerText = result
+    document.getElementById('how').innerText = `Here is one way of calculating:`
     if (exactDraws == 'YES') {
         document.getElementById('stats').innerText = exactStats
+        document.getElementById('percentage').innerText = `${exactPercent}% Chance`
     } else if (exactDraws == 'NO') {
         document.getElementById('stats').innerText = atLeastStats
+        document.getElementById('percentage').innerText = `${atLeastPercent}% Chance`
     }
 }
