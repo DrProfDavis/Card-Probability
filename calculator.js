@@ -207,8 +207,8 @@ function calculateProbability() {
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
                 atLeastStats = a + b.toFixed(6)
                 exactStats = a + b.toFixed(6)
-                atLeastPercent = ((b) * 100).toFixed(2)
-                exactPercent = (b * 100).toFixed(2)
+                atLeastPercent = ((b) * 100).toFixed(4)
+                exactPercent = (b * 100).toFixed(4)
             }
         }
     }
@@ -390,8 +390,8 @@ function calculateProbability() {
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 15;
                 atLeastStats = a + b.toFixed(6)
                 exactStats = a + b.toFixed(6)
-                atLeastPercent = ((b) * 100).toFixed(2)
-                exactPercent = (b * 100).toFixed(2)
+                atLeastPercent = ((b) * 100).toFixed(3)
+                exactPercent = (b * 100).toFixed(3)
             }
         }
     }
