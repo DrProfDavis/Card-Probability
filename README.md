@@ -4,29 +4,14 @@
   A Javascript app that helps answer questions based on the statistics of pulling certain cards
 
   ## TABLE OF CONTENTS
-  -- [Installation](#installation)
-
   -- [Usage](#usage)
-
-  -- [Contributions](#contributions)
-
-  -- [Tests](#tests)
 
   -- [License](#license)
 
   -- [Contacts](#contacts)
 
-  ## INSTALLATION
-  na
-
   ## USAGE
-  na
-
-  ## CONTRIBUTIONS
-  na
-
-  ## TESTS
-  na
+  For educational use only
 
   ## LICENSE 
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
