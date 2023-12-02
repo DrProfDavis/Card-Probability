@@ -32,6 +32,7 @@ function calculateProbability() {
     if (cardReplacement == 'NO') {
         if (totalDraws == 1) {
             atLeastStats = `(${num}/${deck}) = ` + (num / deck);
+            exactStats = `(${num}/${deck}) = ` + (num / deck);
         } else if (totalDraws == 2) {
             if (successfulDraws == 1) {
                 a = `(${num}/${deck})*(${deck - num}/${deck - 1}) * 3 = `;
@@ -39,8 +40,10 @@ function calculateProbability() {
                 c = `(${num}/${deck})*(${num - 1}/${deck - 1}) = `;
                 d = (num / deck) * ((num - 1) / (deck - 1));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
+                exactStats = a + b
             } else if (successfulDraws == 2) {
                 atLeastStats = `(${num}/${deck})*(${num - 1}/${deck - 1}) = ` + (num / deck) * ((num - 1) / (deck - 1));
+                exactStats = `(${num}/${deck})*(${num - 1}/${deck - 1}) = ` + (num / deck) * ((num - 1) / (deck - 1));
             }
         } else if (totalDraws == 3) {
             if (successfulDraws == 1) {
@@ -51,16 +54,19 @@ function calculateProbability() {
                 e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = `;
                 f = (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
+                exactStats = a + b
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2}) * 3 = `;
                 b = (num / deck) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * 3;
                 c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = `;
                 d = (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
+                exactStats = a + b
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2}) = `;
                 b = (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
                 atLeastStats = a + b
+                exactStats = a + b
             }
         } else if (totalDraws == 4) {
             if (successfulDraws == 1) {
@@ -73,6 +79,7 @@ function calculateProbability() {
                 g = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
                 h = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
+                exactStats = a + b
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3}) * 6 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * 6;
@@ -81,16 +88,19 @@ function calculateProbability() {
                 e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
                 f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
+                exactStats = a + b
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3}) * 4 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * 4;
                 c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
                 d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
+                exactStats = a + b
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
                 atLeastStats = a + b
+                exactStats = a + b
             }
         } else if (totalDraws == 5) {
             if (successfulDraws == 1) {
@@ -103,6 +113,7 @@ function calculateProbability() {
                 g = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4}) * 5 = `;
                 h = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
+                exactStats = a + b
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3})*(${deck - num - 2}/${deck - 4}) * 10 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * ((deck - num - 2) / (deck - 4)) * 10;
@@ -111,16 +122,19 @@ function calculateProbability() {
                 e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4}) * 5 = `;
                 f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
+                exactStats = a + b
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4}) * 10 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4)) * 10;
                 c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4}) * 5 = `;
                 d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
+                exactStats = a + b
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4}) * 5 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
                 atLeastStats = a + b
+                exactStats = a + b
             }
         } else if (totalDraws == 6) {
             if (successfulDraws == 1) {
@@ -133,6 +147,7 @@ function calculateProbability() {
                 g = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4})*(${deck - num - 1}/${deck - 5}) * 15 = `;
                 h = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
+                exactStats = a + b
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${deck - num}/${deck - 2})*(${deck - num - 1}/${deck - 3})*(${deck - num - 2}/${deck - 4})*(${deck - num - 3}/${deck - 5}) * 15 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((deck - num) / (deck - 2)) * ((deck - num - 1) / (deck - 3)) * ((deck - num - 2) / (deck - 4)) * ((deck - num - 3) / (deck - 5)) * 15;
@@ -141,22 +156,26 @@ function calculateProbability() {
                 e = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4})*(${deck - num - 1}/${deck - 5}) * 15 = `;
                 f = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
+                exactStats = a + b
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${deck - num}/${deck - 3})*(${deck - num - 1}/${deck - 4})*(${deck - num - 2}/${deck - 5}) * 20 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((deck - num) / (deck - 3)) * ((deck - num - 1) / (deck - 4)) * ((deck - num - 2) / (deck - 5)) * 20;
                 c = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4})*(${deck - num - 1}/${deck - 5}) * 15 = `;
                 d = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
+                exactStats = a + b
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3})*(${deck - num}/${deck - 4})*(${deck - num - 1}/${deck - 5}) * 15 = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * ((deck - num - 1) / (deck - 5)) * 15;
                 atLeastStats = a + b
+                exactStats = a + b
             }
         }
     }
     else if (cardReplacement == 'YES') {
         if (totalDraws == 1) {
             atLeastStats = `(${num}/${deck}) = ` + (num / deck);
+            exactStats = `(${num}/${deck}) = ` + (num / deck);
         } else if (totalDraws == 2) {
             if (successfulDraws == 1) {
                 a = `(${num}/${deck})*(${deck - num}/${deck}) * 3 = `;
@@ -164,8 +183,10 @@ function calculateProbability() {
                 c = `(${num}/${deck})*(${num}/${deck}) = `;
                 d = (num / deck) * ((num) / (deck));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
+                exactStats = a + b
             } else if (successfulDraws == 2) {
                 atLeastStats = `(${num}/${deck})*(${num}/${deck}) = ` + (num / deck) * ((num) / (deck));
+                exactStats = `(${num}/${deck})*(${num}/${deck}) = ` + (num / deck) * ((num) / (deck));
             }
         } else if (totalDraws == 3) {
             if (successfulDraws == 1) {
@@ -176,16 +197,19 @@ function calculateProbability() {
                 e = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = `;
                 f = (num / deck) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
+                exactStats = a + b
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) * 3 = `;
                 b = (num / deck) * ((num) / (deck)) * ((deck - num) / (deck)) * 3;
                 c = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = `;
                 d = (num / deck) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
+                exactStats = a + b
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = `;
                 b = (num / deck) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b
+                exactStats = a + b
             }
         } else if (totalDraws == 4) {
             if (successfulDraws == 1) {
@@ -198,6 +222,7 @@ function calculateProbability() {
                 g = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = `;
                 h = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
+                exactStats = a + b
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 6 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 6;
@@ -206,16 +231,19 @@ function calculateProbability() {
                 e = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = `;
                 f = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
+                exactStats = a + b
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) * 4 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * 4;
                 c = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = `;
                 d = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
+                exactStats = a + b
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck}) = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b
+                exactStats = a + b
             }
         } else if (totalDraws == 5) {
             if (successfulDraws == 1) {
@@ -228,6 +256,7 @@ function calculateProbability() {
                 g = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) * 5 = `;
                 h = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * 5;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
+                exactStats = a + b
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 10 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 10;
@@ -236,16 +265,19 @@ function calculateProbability() {
                 e = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) * 5 = `;
                 f = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * 5;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
+                exactStats = a + b
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 10 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 10;
                 c = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) * 5 = `;
                 d = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * 5;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
+                exactStats = a + b
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck}) * 5 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * 5;
                 atLeastStats = a + b
+                exactStats = a + b
             }
         } else if (totalDraws == 6) {
             if (successfulDraws == 1) {
@@ -258,6 +290,7 @@ function calculateProbability() {
                 g = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 15 = `;
                 h = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 15;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + g + h + '\n\n' + `${b} + ${d} + ${f} + ${h} = ` + (b + d + f + h)
+                exactStats = a + b
             } else if (successfulDraws == 2) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 15 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 15;
@@ -266,19 +299,26 @@ function calculateProbability() {
                 e = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 15 = `;
                 f = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 15;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + e + f + '\n\n' + `${b} + ${d} + ${f} = ` + (b + d + f)
+                exactStats = a + b
             } else if (successfulDraws == 3) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 20 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 20;
                 c = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 15 = `;
                 d = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 15;
                 atLeastStats = a + b + '\n\n' + c + d + '\n\n' + `${b} + ${d} = ` + (b + d)
+                exactStats = a + b
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${num}/${deck})*(${deck - num}/${deck})*(${deck - num}/${deck}) * 15 = `;
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * ((deck - num) / (deck)) * 15;
                 atLeastStats = a + b
+                exactStats = a + b
             }
         }
     }
     document.getElementById('result').innerText = result
-    document.getElementById('stats').innerText = atLeastStats
+    if (exactDraws == 'YES') {
+        document.getElementById('stats').innerText = exactStats
+    } else if (exactDraws == 'NO') {
+        document.getElementById('stats').innerText = atLeastStats
+    }
 }
