@@ -30,7 +30,6 @@ function calculateProbability() {
     } else if (cards.includes(selectedCard)) {
         num = 4
     }
-    result = `The probability of drawing ${exactness} ${successfulDraws} ${selectedCard}(s) in ${totalDraws} draw(s) ${replace} card replacement:`;
     if (cardReplacement == 'NO') {
         if (totalDraws == 1) {
             atLeastStats = `(${num}/${deck}) = ` + (num / deck);
@@ -52,8 +51,8 @@ function calculateProbability() {
                 b = ((num / deck) * ((num - 1) / (deck - 1)));
                 atLeastStats = a + b.toFixed(6)
                 exactStats = a + b.toFixed(6)
-                atLeastPercent = ((num / deck) * 100).toFixed(2)
-                exactPercent = ((num / deck) * 100).toFixed(2)
+                atLeastPercent = ((b) * 100).toFixed(2)
+                exactPercent = ((b) * 100).toFixed(2)
             }
         } else if (totalDraws == 3) {
             if (successfulDraws == 1) {
@@ -81,8 +80,8 @@ function calculateProbability() {
                 b = (num / deck) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2));
                 atLeastStats = a + b.toFixed(6)
                 exactStats = a + b.toFixed(6)
-                atLeastPercent = ((b) * 100).toFixed(2)
-                exactPercent = (b * 100).toFixed(2)
+                atLeastPercent = ((b) * 100).toFixed(3)
+                exactPercent = (b * 100).toFixed(3)
             }
         } else if (totalDraws == 4) {
             if (successfulDraws == 1) {
@@ -121,10 +120,10 @@ function calculateProbability() {
             } else if (successfulDraws == 4) {
                 a = `(${num}/${deck})*(${num - 1}/${deck - 1})*(${num - 2}/${deck - 2})*(${num - 3}/${deck - 3}) = `;
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3));
-                atLeastStats = a + b.toFixed(6)
-                exactStats = a + b.toFixed(6)
-                atLeastPercent = ((b) * 100).toFixed(2)
-                exactPercent = (b * 100).toFixed(2)
+                atLeastStats = a + b.toFixed(7)
+                exactStats = a + b.toFixed(7)
+                atLeastPercent = ((b) * 100).toFixed(5)
+                exactPercent = (b * 100).toFixed(5)
             }
         } else if (totalDraws == 5) {
             if (successfulDraws == 1) {
@@ -165,8 +164,8 @@ function calculateProbability() {
                 b = ((num) / (deck)) * ((num - 1) / (deck - 1)) * ((num - 2) / (deck - 2)) * ((num - 3) / (deck - 3)) * ((deck - num) / (deck - 4)) * 5;
                 atLeastStats = a + b.toFixed(6)
                 exactStats = a + b.toFixed(6)
-                atLeastPercent = ((b) * 100).toFixed(2)
-                exactPercent = (b * 100).toFixed(2)
+                atLeastPercent = ((b) * 100).toFixed(4)
+                exactPercent = (b * 100).toFixed(4)
             }
         } else if (totalDraws == 6) {
             if (successfulDraws == 1) {
@@ -235,8 +234,8 @@ function calculateProbability() {
                 b = (num / deck) * ((num) / (deck));
                 atLeastStats = a + b.toFixed(6)
                 exactStats = a + b.toFixed(6)
-                atLeastPercent = ((num / deck) * 100).toFixed(2)
-                exactPercent = ((num / deck) * 100).toFixed(2)
+                atLeastPercent = ((b) * 100).toFixed(2)
+                exactPercent = ((b) * 100).toFixed(2)
             }
         } else if (totalDraws == 3) {
             if (successfulDraws == 1) {
@@ -264,8 +263,8 @@ function calculateProbability() {
                 b = (num / deck) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b.toFixed(6)
                 exactStats = a + b.toFixed(6)
-                atLeastPercent = ((b) * 100).toFixed(2)
-                exactPercent = (b * 100).toFixed(2)
+                atLeastPercent = ((b) * 100).toFixed(3)
+                exactPercent = (b * 100).toFixed(3)
             }
         } else if (totalDraws == 4) {
             if (successfulDraws == 1) {
@@ -306,8 +305,8 @@ function calculateProbability() {
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck));
                 atLeastStats = a + b.toFixed(6)
                 exactStats = a + b.toFixed(6)
-                atLeastPercent = ((b) * 100).toFixed(2)
-                exactPercent = (b * 100).toFixed(2)
+                atLeastPercent = ((b) * 100).toFixed(4)
+                exactPercent = (b * 100).toFixed(4)
             }
         } else if (totalDraws == 5) {
             if (successfulDraws == 1) {
@@ -348,8 +347,8 @@ function calculateProbability() {
                 b = ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((num) / (deck)) * ((deck - num) / (deck)) * 5;
                 atLeastStats = a + b.toFixed(6)
                 exactStats = a + b.toFixed(6)
-                atLeastPercent = ((b) * 100).toFixed(2)
-                exactPercent = (b * 100).toFixed(2)
+                atLeastPercent = ((b) * 100).toFixed(4)
+                exactPercent = (b * 100).toFixed(4)
             }
         } else if (totalDraws == 6) {
             if (successfulDraws == 1) {
@@ -395,13 +394,49 @@ function calculateProbability() {
             }
         }
     }
-    document.getElementById('result').innerText = result
-    document.getElementById('how').innerText = `Here is one way of calculating:`
-    if (exactDraws == 'YES') {
-        document.getElementById('stats').innerText = exactStats
-        document.getElementById('percentage').innerText = `${exactPercent}% Chance`
-    } else if (exactDraws == 'NO') {
-        document.getElementById('stats').innerText = atLeastStats
-        document.getElementById('percentage').innerText = `${atLeastPercent}% Chance`
+    if (totalDraws < 1 || totalDraws > 6) {
+        document.getElementById('how').innerText = 'Must draw at least 1 card and no more than 6'
+        document.getElementById('result').innerText = ''
+        document.getElementById('stats').innerText = ''
+        document.getElementById('percentage').innerText = ''
+    } else {
+        if (totalDraws < successfulDraws) {
+            document.getElementById('how').innerText = 'Must have more total draws then successful draws'
+            document.getElementById('result').innerText = ''
+            document.getElementById('stats').innerText = ''
+            document.getElementById('percentage').innerText = ''
+        } else {
+            if (successfulDraws < 1 || successfulDraws > 4) {
+                document.getElementById('how').innerText = 'Must have at least 1 successful draw but no more than 4'
+                document.getElementById('result').innerText = ''
+                document.getElementById('stats').innerText = ''
+                document.getElementById('percentage').innerText = ''
+            } else {
+                if (exactDraws !== 'YES' & exactDraws !== 'NO') {
+                    document.getElementById('how').innerText = 'Please enter "Yes" or "No" for exact number of draws'
+                    document.getElementById('result').innerText = ''
+                    document.getElementById('stats').innerText = ''
+                    document.getElementById('percentage').innerText = ''
+                } else {
+                    if (cardReplacement !== 'YES' & cardReplacement !== 'NO') {
+                        document.getElementById('how').innerText = 'Please enter "Yes" or "No" for replacing after draws'
+                        document.getElementById('result').innerText = ''
+                        document.getElementById('stats').innerText = ''
+                        document.getElementById('percentage').innerText = ''
+                    } else {
+                        result = `The probability of drawing ${exactness} ${successfulDraws} ${selectedCard}(s) in ${totalDraws} draw(s) ${replace} card replacement:`;
+                        document.getElementById('how').innerText = `Here is one way of calculating:`
+                        document.getElementById('result').innerText = result
+                        if (exactDraws == 'YES') {
+                            document.getElementById('stats').innerText = exactStats
+                            document.getElementById('percentage').innerText = `${exactPercent}% Chance`
+                        } else if (exactDraws == 'NO') {
+                            document.getElementById('stats').innerText = atLeastStats
+                            document.getElementById('percentage').innerText = `${atLeastPercent}% Chance`
+                        }
+                    }
+                }
+            }
+        }
     }
 }
