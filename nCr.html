@@ -12,12 +12,13 @@
 
     <h2>How many total draws? (1-52)</h2>
     <input type="text" id="numInput" placeholder="Enter a number">
-    <button onclick="generateDropdowns()">Generate Dropdowns</button>
+    <button onclick="generateDraws()">Generate Draws</button>
+    <button id="saveValuesButton" onclick="setAllDraws()">Make All Same</button>
 
-    <button onclick="setAllDropdowns()">Make All Same</button>
-    <div id="dropdownContainer"></div>
+    <h2 id="lookingContainer"></h2>
+    <div id="drawContainer"></div>
+    <button id="calculateButton" onclick="calculate()">Calculate</button>
 
-    <div id="textBoxContainer"></div>
     <script src="nCr.js"></script>
 </body>
 
