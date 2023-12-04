@@ -17,7 +17,7 @@
             </h1>
         </div>
         <div>
-            <h2>How many total draws? (1-52)</h2>
+            <h2>How many total draws?</h2>
             <input type="text" id="numInput" placeholder="Enter a number">
             <button onclick="generateDraws()">Generate Draws</button>
             <button id="saveValuesButton" onclick="setAllDraws()">Make All Same</button>
@@ -26,6 +26,14 @@
             <h2 id="lookingContainer"></h2>
             <div id="drawContainer"></div>
             <button id="calculateButton" onclick="calculate()">Calculate</button>
+        </div>
+        <div>
+            <h2 id="resultsHeaderContainer"></h2>
+            <div class="percentage" id="resultsPercentageContainer"></div>
+            <div id="resultsTopContainer"></div>
+            <div id="resultsMidContainer"></div>
+            <div id="resultsBotContainer"></div>
+            <h4 id="resultsFooterContainer"></h4>
         </div>
     </section>
 

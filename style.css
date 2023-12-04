@@ -21,10 +21,19 @@ h2 {
     color: #ffcc00;
 }
 
+h3 {
+    color: #ffcc00;
+}
+
 #calculateButton {
     display: none;
 }
 
 .title {
     color: #ffcc00;
+}
+
+.percentage {
+    color: #0080ff;
+    font-size: xx-large;
 }
