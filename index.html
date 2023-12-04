@@ -4,52 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinations Calculator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Card Calculator</title>
 </head>
 
 <body>
-    <h1>Deck of Cards Statistics Calculator</h1>
-    <h6>Disclaimer: This Calculator is currently bugged and will not give you correct answers.</h6>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                Hello World
+            </h1>
+        </div>
+        <div>
+            <h2>How many total draws? (1-52)</h2>
+            <input type="text" id="numInput" placeholder="Enter a number">
+            <button onclick="generateDraws()">Generate Draws</button>
+            <button id="saveValuesButton" onclick="setAllDraws()">Make All Same</button>
+        </div>
+        <div>
+            <h2 id="lookingContainer"></h2>
+            <div id="drawContainer"></div>
+            <button id="calculateButton" onclick="calculate()">Calculate</button>
+        </div>
+    </section>
 
-    <div>
-        <label for="totalDraws">How many cards will be drawn?</label>
-        <input id="totalDraws" placeholder="Up to 6">
-        </input>
-    </div>
-
-    <div>
-        <label for="successfulDraws">How many successful draws are needed?</label>
-        <input id="successfulDraws" placeholder="Up to 4">
-        </input>
-    </div>
-
-    <div>
-        <label for="selectedCard">Which card or suit?</label>
-        <input id="selectedCard" placeholder="2, Jack, Spade">
-        </input>
-    </div>
-
-    <div>
-        <label for="exactDraws">Exact number of successful draws?</label>
-        <input id="exactDraws" placeholder="Yes or No">
-        </input>
-    </div>
-
-    <div>
-        <label for="cardReplacement">Will cards be replaced after draw?</label>
-        <input id="cardReplacement" placeholder="Yes or No">
-        </input>
-    </div>
-
-    <div><button onclick="calculateProbability()">Calculate Probability</button></div>
-
-    <div id="result"></div>
-    <h2 id="percentage"></h2>
-    <div id="how"></div>
-    <div id="stats"></div>
-
-    <script src="calculator.js"></script>
+    <script src="nCr.js"></script>
 </body>
 
 </html>

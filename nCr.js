@@ -1,24 +1,24 @@
-let drawValues = [];
+let drawValues = [];                    
 const cardChoices = {
     0: 'Choose Card',
-    1: 'Any Card',
-    2: 'Spades',
-    3: 'Hearts',
-    4: 'Diamonds',
-    5: 'Clubs',
-    6: 'Ace',
-    7: 'Two',
-    8: 'Three',
-    9: 'Four',
-    10: 'Five',
-    11: 'Six',
-    12: 'Seven',
-    13: 'Eight',
-    14: 'Nine',
-    15: 'Ten',
-    16: 'Jack',
-    17: 'Queen',
-    18: 'King'
+    1: { name: 'Any Card', originalN: 52 },
+    2: { name: 'Spades', originalN: 13 },
+    3: { name: 'Hearts', originalN: 13 },
+    4: { name: 'Diamonds', originalN: 13 },
+    5: { name: 'Clubs', originalN: 13 },
+    6: { name: 'Ace', originalN: 4 },
+    7: { name: 'Two', originalN: 4 },
+    8: { name: 'Three', originalN: 4 },
+    9: { name: 'Four', originalN: 4 },
+    10: { name: 'Five', originalN: 4 },
+    11: { name: 'Six', originalN: 4 },
+    12: { name: 'Seven', originalN: 4 },
+    13: { name: 'Eight', originalN: 4 },
+    14: { name: 'Nine', originalN: 4 },
+    15: { name: 'Ten', originalN: 4 },
+    16: { name: 'Jack', originalN: 4 },
+    17: { name: 'Queen', originalN: 4 },
+    18: { name: 'King', originalN: 4 }
 }
 
 function generateDraws() {
@@ -34,7 +34,7 @@ function generateDraws() {
             draw.name = `draw${i}`;
             draw.id = `draw${i}`;
 
-            for (let j = 0; j <= 17; j++) {
+            for (let j = 0; j <= 18; j++) {
                 const option = document.createElement('option');
                 option.value = `${cardChoices[j]}`;
                 option.text = `${cardChoices[j]}`;
@@ -75,7 +75,7 @@ function factorial(n) {
 }
 
 function combinationFormula(n, r) {
-    let c = (factorial(n)/(factorial(r)*factorial(n-r)))
+    let c = (factorial(n) / (factorial(r) * factorial(n - r)))
     console.log(c);
 }
 // combinationFormula(39,2);

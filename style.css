@@ -24,3 +24,7 @@ h2 {
 #calculateButton {
     display: none;
 }
+
+.title {
+    color: #ffcc00;
+}
