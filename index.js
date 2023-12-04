@@ -1,26 +1,28 @@
 let drawValues = {};
 let totalDraws = [];
 const cardChoices = {
-    0: { cardName: 'Choose Card', originalN: 0, currentN: 0, currentS: 0, currentH: 0, currentD: 0, currentD: 0 },
-    1: { cardName: 'Any Card', originalN: 52, currentN: 52 },
-    2: { cardName: 'Spade', originalN: 13, currentN: 13 },
-    3: { cardName: 'Heart', originalN: 13, currentN: 13 },
-    4: { cardName: 'Diamond', originalN: 13, currentN: 13 },
-    5: { cardName: 'Club', originalN: 13, currentN: 13 },
-    6: { cardName: 'Ace', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1},
-    7: { cardName: 'Two', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1 },
-    8: { cardName: 'Three', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1 },
-    9: { cardName: 'Four', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1 },
-    10: { cardName: 'Five', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1 },
-    11: { cardName: 'Six', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1 },
-    12: { cardName: 'Seven', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1 },
-    13: { cardName: 'Eight', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1 },
-    14: { cardName: 'Nine', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1 },
-    15: { cardName: 'Ten', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1 },
-    16: { cardName: 'Jack', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1 },
-    17: { cardName: 'Queen', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1 },
-    18: { cardName: 'King', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1, currentD: 1 }
-}
+    ChooseCard: { cardName: 'Choose a Card', originalN: 0, currentN: 0, currentS: 0, currentH: 0, currentD: 0, currentD: 0 },
+    AnyCard: { cardName: 'Any Card', originalN: 52, currentN: 52 },
+    Spade: { cardName: 'Spade', originalN: 13, currentN: 13 },
+    Heart: { cardName: 'Heart', originalN: 13, currentN: 13 },
+    Diamond: { cardName: 'Diamond', originalN: 13, currentN: 13 },
+    Club: { cardName: 'Club', originalN: 13, currentN: 13 },
+    Ace: { cardName: 'Ace', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
+    Two: { cardName: 'Two', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
+    Three: { cardName: 'Three', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
+    Four: { cardName: 'Four', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
+    Five: { cardName: 'Five', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
+    Six: { cardName: 'Six', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
+    Seven: { cardName: 'Seven', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
+    Eight: { cardName: 'Eight', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
+    Nine: { cardName: 'Nine', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
+    Ten: { cardName: 'Ten', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
+    Jack: { cardName: 'Jack', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
+    Queen: { cardName: 'Queen', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
+    King: { cardName: 'King', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 }
+};
+
+const cardChoicesArray = Object.values(cardChoices);
 
 function generateDraws() {
     document.getElementById('lookingContainer').innerHTML = 'What cards are we looking for?';
@@ -37,10 +39,11 @@ function generateDraws() {
 
             for (let j = 0; j <= 18; j++) {
                 const option = document.createElement('option');
-                // let raw = String.raw``
-                option.value = cardChoices[j].cardName;
-                option.text = `${cardChoices[j].cardName}`;
+                let rip = cardChoicesArray[j];
+                option.value = `${rip.cardName}`;
+                option.text = `${rip.cardName}`;
                 draw.appendChild(option);
+                // console.log(rip);
             }
 
             draw.addEventListener('change', function () {
@@ -84,15 +87,95 @@ function combinationFormula(n, r) {
 // Answer: 741
 
 function calculate() {
-    let currentDrawPile = cardChoices;
-    console.log(currentDrawPile); 
+    // let currentDrawPile = Object.values(cardChoices);
+
+    // console.log('currentDrawPile:');
+    // console.log(currentDrawPile);
+    // console.log('currentDrawPile[2]:');
+    // console.log(currentDrawPile[2]);
 
     console.log('drawValues:');
-    console.log('-----------------');
+    console.log(drawValues);
 
     for (let i = 0; i < totalDraws; i++) {
-        let card = drawValues[i];
-        console.log(card);
-        console.log(currentDrawPile[i]);
+        // console.log(drawValues[i]);
+        // console.log(cardChoices.Club.cardName);
+        switch (drawValues[i]) {
+            case cardChoices.AnyCard.cardName:
+                console.log('AnyCard AnyCard AnyCard');
+                break;
+
+            case cardChoices.Spade.cardName:
+                console.log('Spade Spade Spade');
+                break;
+
+            case cardChoices.Heart.cardName:
+                console.log('Heart Heart Heart');
+                break;
+
+            case cardChoices.Diamond.cardName:
+                console.log('Diamond Diamond Diamond');
+                break;
+
+            case cardChoices.Club.cardName:
+                console.log('Club Club Club');
+                break;
+
+            case cardChoices.Ace.cardName:
+                console.log('Ace Ace Ace');
+                break;
+
+            case cardChoices.Two.cardName:
+                console.log('Two Two Two');
+                break;
+
+            case cardChoices.Three.cardName:
+                console.log('Three Three Three');
+                break;
+
+            case cardChoices.Four.cardName:
+                console.log('Four Four Four');
+                break;
+
+            case cardChoices.Five.cardName:
+                console.log('Five Five Five');
+                break;
+
+            case cardChoices.Six.cardName:
+                console.log('Six Six Six');
+                break;
+
+            case cardChoices.Seven.cardName:
+                console.log('Seven Seven Seven');
+                break;
+
+            case cardChoices.Eight.cardName:
+                console.log('Eight Eight Eight');
+                break;
+
+            case cardChoices.Nine.cardName:
+                console.log('Nine Nine Nine');
+                break;
+
+            case cardChoices.Ten.cardName:
+                console.log('Ten Ten Ten');
+                break;
+
+            case cardChoices.Jack.cardName:
+                console.log('Jack Jack Jack');
+                break;
+
+            case cardChoices.Queen.cardName:
+                console.log('Queen Queen Queen');
+                break;
+
+            case cardChoices.King.cardName:
+                console.log('King King King');
+                break;
+
+            default:
+                console.log('IMPOSSIBLE CALCULATION')
+                break;
+        }
     }
 }
