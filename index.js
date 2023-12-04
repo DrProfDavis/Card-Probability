@@ -1,32 +1,32 @@
 let drawValues = {};
-let totalDraws = [];
+let totalDraws = 0;
 let currentDrawPile = [];
 const cardChoices = {
-    ChooseCard: { cardName: 'Choose a Card', originalN: 0, currentN: 0, currentS: 0, currentH: 0, currentD: 0, currentD: 0 },
-    AnyCard: { cardName: 'Any Card', originalN: 52, currentN: 52 },
-    Spade: { cardName: 'Spade', originalN: 13, currentN: 13 },
-    Heart: { cardName: 'Heart', originalN: 13, currentN: 13 },
-    Diamond: { cardName: 'Diamond', originalN: 13, currentN: 13 },
-    Club: { cardName: 'Club', originalN: 13, currentN: 13 },
-    Ace: { cardName: 'Ace', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
-    Two: { cardName: 'Two', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
-    Three: { cardName: 'Three', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
-    Four: { cardName: 'Four', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
-    Five: { cardName: 'Five', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
-    Six: { cardName: 'Six', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
-    Seven: { cardName: 'Seven', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
-    Eight: { cardName: 'Eight', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
-    Nine: { cardName: 'Nine', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
-    Ten: { cardName: 'Ten', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
-    Jack: { cardName: 'Jack', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
-    Queen: { cardName: 'Queen', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 },
-    King: { cardName: 'King', originalN: 4, currentN: 4, currentS: 1, currentH: 1, currentD: 1 }
+    ChooseCard: { cardName: 'Choose a Card'},
+    AnyCard: { cardName: 'Any Card'},
+    Spade: { cardName: 'Spade'},
+    Heart: { cardName: 'Heart'},
+    Diamond: { cardName: 'Diamond'},
+    Club: { cardName: 'Club'},
+    Ace: { cardName: 'Ace'},
+    Two: { cardName: 'Two'},
+    Three: { cardName: 'Three'},
+    Four: { cardName: 'Four'},
+    Five: { cardName: 'Five'},
+    Six: { cardName: 'Six'},
+    Seven: { cardName: 'Seven'},
+    Eight: { cardName: 'Eight'},
+    Nine: { cardName: 'Nine'},
+    Ten: { cardName: 'Ten'},
+    Jack: { cardName: 'Jack'},
+    Queen: { cardName: 'Queen'},
+    King: { cardName: 'King'}
 };
 
 const cardChoicesArray = Object.values(cardChoices);
 
 function generateDraws() {
-    document.getElementById('lookingContainer').innerHTML = 'What cards are we looking for? (Do not mix suits with non-suits)';
+    document.getElementById('lookingContainer').innerHTML = 'What cards are we looking for? (No more than 13 per suit and 4 per non-suit)';
     document.getElementById('drawContainer').innerHTML = '';
     drawValues = [];
 
@@ -83,38 +83,22 @@ function factorial(n) {
 
 function combinationFormula(n, r) {
     let c = (factorial(n) / (factorial(r) * factorial(n - r)))
-    // console.log(c)
     return c;
 }
-// combinationFormula(39,2);
-// Answer: 741
 
 function calculate() {
     let math = 1;
-    let calculation = 1;
-    let calcDenom = 1;
     let denominator = 1;
-    let calculationArray = [];
     let roundCardsArray = [];
 
     // TODO Must refresh page cause of this line of code
     currentDrawPile = cardChoices;
 
-    // console.log('currentDrawPile:');
-    // console.log(currentDrawPile);
-    // console.log('currentDrawPile.Ace:');
-    // console.log(currentDrawPile.Ace);
-
-    // console.log('drawValues:');
-    // console.log(drawValues);
-
     for (let i = 0; i < totalDraws; i++) {
-        let n = 0;
-        // console.log(drawValues[i]);
-        // console.log(cardChoices.Club.cardName);
         switch (drawValues[i]) {
             case currentDrawPile.AnyCard.cardName:
                 console.log('AnyCard AnyCard AnyCard');
+                anyCardCount += 1;
                 roundCardsArray.push(17);
                 break;
 
@@ -245,21 +229,79 @@ function calculate() {
                 math = math * diamond();
                 break;
 
+            case 3:
+                math = math * club();
+                break;
+
+            case 4:
+                math = math * ace();
+                break;
+
+            case 5:
+                math = math * two();
+                break;
+
+            case 6:
+                math = math * three();
+                break;
+
+            case 7:
+                math = math * four();
+                break;
+
+            case 8:
+                math = math * five();
+                break;
+
+            case 9:
+                math = math * six();
+                break;
+
+            case 10:
+                math = math * seven();
+                break;
+
+            case 11:
+                math = math * eight();
+                break;
+
+            case 12:
+                math = math * nine();
+                break;
+
+            case 13:
+                math = math * ten();
+                break;
+
+            case 14:
+                math = math * jack();
+                break;
+
+            case 15:
+                math = math * queen();
+                break;
+
+            case 16:
+                math = math * king();
+                break;
+
+            case 17:
+                math = math * anyCard();
+                break;
+
             default:
                 break;
         }
     }
 
     denominator = combinationFormula(52, totalDraws)
-    console.log(((math/denominator)*100).toFixed(2));
-
-
+    console.log(((math / denominator) * 100).toFixed(2));
 }
 
 let anyCardCount = 0;
 function anyCard() {
-    currentDrawPile.AnyCard.currentN = currentDrawPile.AnyCard.currentN - 1;
-    anyCardCount += 1;
+    let c = combinationFormula(52 - totalDraws + anyCardCount, anyCardCount);
+    return c;
 }
 
 let spadeCount = 0;
