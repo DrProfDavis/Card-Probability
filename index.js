@@ -1,5 +1,6 @@
 let drawValues = {};
 let totalDraws = [];
+let currentDrawPile = [];
 const cardChoices = {
     ChooseCard: { cardName: 'Choose a Card', originalN: 0, currentN: 0, currentS: 0, currentH: 0, currentD: 0, currentD: 0 },
     AnyCard: { cardName: 'Any Card', originalN: 52, currentN: 52 },
@@ -25,7 +26,7 @@ const cardChoices = {
 const cardChoicesArray = Object.values(cardChoices);
 
 function generateDraws() {
-    document.getElementById('lookingContainer').innerHTML = 'What cards are we looking for?';
+    document.getElementById('lookingContainer').innerHTML = 'What cards are we looking for? (Do not mix suits with non-suits)';
     document.getElementById('drawContainer').innerHTML = '';
     drawValues = [];
 
@@ -72,105 +73,199 @@ function setAllDraws() {
 }
 
 function factorial(n) {
-    if (n === 0 || n === 1) {
-        return 1;
-    } else {
-        return n * factorial(n - 1);
+    let result = 1;
+    
+    for (let i = 2; i <= n; i++) {
+        result *= i;
     }
+    
+    return result;
 }
 
 function combinationFormula(n, r) {
     let c = (factorial(n) / (factorial(r) * factorial(n - r)))
-    console.log(c);
+    // console.log(c)
+    return c;
 }
 // combinationFormula(39,2);
 // Answer: 741
 
 function calculate() {
-    // let currentDrawPile = Object.values(cardChoices);
+    let calculation = 1;
+    let calcDenom = 1;
+    let denominator = 1;
+    let calculationArray = [];
+    let roundCardsArray = [];
+
+    // TODO Must refresh page cause of this line of code
+    currentDrawPile = cardChoices;
 
     // console.log('currentDrawPile:');
     // console.log(currentDrawPile);
-    // console.log('currentDrawPile[2]:');
-    // console.log(currentDrawPile[2]);
+    // console.log('currentDrawPile.Ace:');
+    // console.log(currentDrawPile.Ace);
 
-    console.log('drawValues:');
-    console.log(drawValues);
+    // console.log('drawValues:');
+    // console.log(drawValues);
 
     for (let i = 0; i < totalDraws; i++) {
+        let n = 0;
         // console.log(drawValues[i]);
         // console.log(cardChoices.Club.cardName);
         switch (drawValues[i]) {
-            case cardChoices.AnyCard.cardName:
+            case currentDrawPile.AnyCard.cardName:
                 console.log('AnyCard AnyCard AnyCard');
+                roundCardsArray.push(17);
                 break;
 
-            case cardChoices.Spade.cardName:
+            case currentDrawPile.Spade.cardName:
                 console.log('Spade Spade Spade');
+                spadeCount += 1;
+                roundCardsArray.push(0);
                 break;
 
-            case cardChoices.Heart.cardName:
+            case currentDrawPile.Heart.cardName:
                 console.log('Heart Heart Heart');
+                heartCount += 1;
+                roundCardsArray.push(1);
                 break;
 
-            case cardChoices.Diamond.cardName:
+            case currentDrawPile.Diamond.cardName:
                 console.log('Diamond Diamond Diamond');
+                diamondCount += 1;
+                roundCardsArray.push(2);
                 break;
 
-            case cardChoices.Club.cardName:
+            case currentDrawPile.Club.cardName:
                 console.log('Club Club Club');
+                clubCount += 1;
+                roundCardsArray.push(3);
                 break;
 
-            case cardChoices.Ace.cardName:
+            case currentDrawPile.Ace.cardName:
                 console.log('Ace Ace Ace');
+                aceCount += 1;
+                roundCardsArray.push(4);
                 break;
 
-            case cardChoices.Two.cardName:
+            case currentDrawPile.Two.cardName:
                 console.log('Two Two Two');
+                n = currentDrawPile.Two.currentN;
+                r = 1;
+                c = combinationFormula(n,r);
+                calculation = calculation * c;
+                two();
+                console.log(c);
                 break;
 
-            case cardChoices.Three.cardName:
+            case currentDrawPile.Three.cardName:
                 console.log('Three Three Three');
+                n = currentDrawPile.Three.currentN;
+                r = 1;
+                c = combinationFormula(n,r);
+                calculation = calculation * c;
+                three();
+                console.log(c);
                 break;
 
-            case cardChoices.Four.cardName:
+            case currentDrawPile.Four.cardName:
                 console.log('Four Four Four');
+                n = currentDrawPile.Four.currentN;
+                r = 1;
+                c = combinationFormula(n,r);
+                calculation = calculation * c;
+                four();
+                console.log(c);
                 break;
 
-            case cardChoices.Five.cardName:
+            case currentDrawPile.Five.cardName:
                 console.log('Five Five Five');
+                n = currentDrawPile.Five.currentN;
+                r = 1;
+                c = combinationFormula(n,r);
+                calculation = calculation * c;
+                five();
+                console.log(c);
                 break;
 
-            case cardChoices.Six.cardName:
+            case currentDrawPile.Six.cardName:
                 console.log('Six Six Six');
+                n = currentDrawPile.Six.currentN;
+                r = 1;
+                c = combinationFormula(n,r);
+                calculation = calculation * c;
+                six();
+                console.log(c);
                 break;
 
-            case cardChoices.Seven.cardName:
+            case currentDrawPile.Seven.cardName:
                 console.log('Seven Seven Seven');
+                n = currentDrawPile.Seven.currentN;
+                r = 1;
+                c = combinationFormula(n,r);
+                calculation = calculation * c;
+                seven();
+                console.log(c);
                 break;
 
-            case cardChoices.Eight.cardName:
+            case currentDrawPile.Eight.cardName:
                 console.log('Eight Eight Eight');
+                n = currentDrawPile.Eight.currentN;
+                r = 1;
+                c = combinationFormula(n,r);
+                calculation = calculation * c;
+                eight();
+                console.log(c);
                 break;
 
-            case cardChoices.Nine.cardName:
+            case currentDrawPile.Nine.cardName:
                 console.log('Nine Nine Nine');
+                n = currentDrawPile.Nine.currentN;
+                r = 1;
+                c = combinationFormula(n,r);
+                calculation = calculation * c;
+                nine();
+                console.log(c);
                 break;
 
-            case cardChoices.Ten.cardName:
+            case currentDrawPile.Ten.cardName:
                 console.log('Ten Ten Ten');
+                n = currentDrawPile.Ten.currentN;
+                r = 1;
+                c = combinationFormula(n,r);
+                calculation = calculation * c;
+                ten();
+                console.log(c);
                 break;
 
-            case cardChoices.Jack.cardName:
+            case currentDrawPile.Jack.cardName:
                 console.log('Jack Jack Jack');
+                n = currentDrawPile.Jack.currentN;
+                r = 1;
+                c = combinationFormula(n,r);
+                calculation = calculation * c;
+                jack();
+                console.log(c);
                 break;
 
-            case cardChoices.Queen.cardName:
+            case currentDrawPile.Queen.cardName:
                 console.log('Queen Queen Queen');
+                n = currentDrawPile.Queen.currentN;
+                r = 1;
+                c = combinationFormula(n,r);
+                calculation = calculation * c;
+                queen();
+                console.log(c);
                 break;
 
-            case cardChoices.King.cardName:
+            case currentDrawPile.King.cardName:
                 console.log('King King King');
+                n = currentDrawPile.King.currentN;
+                r = 1;
+                c = combinationFormula(n,r);
+                calculation = calculation * c;
+                king();
+                console.log(c);
                 break;
 
             default:
@@ -178,4 +273,128 @@ function calculate() {
                 break;
         }
     }
+    console.log(`roundCardsArray = `+roundCardsArray)
+    // for (let i = 0; i < totalDraws; i++) {
+    //     console.log(`roundCardsArray[${i}] = `+roundCardsArray[i])
+    // }
+    denominator = combinationFormula(52,totalDraws)
+    let a = spade();
+    let b = heart();
+    let c = club();
+    let math = a * b * c
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    console.log(math);
+    console.log(((math/denominator)*100).toFixed(2));
+
+
+}
+
+let anyCardCount = 0;
+function anyCard() {
+    currentDrawPile.AnyCard.currentN = currentDrawPile.AnyCard.currentN-1;
+    anyCardCount+=1;
+}
+
+let spadeCount = 0;
+function spade() {
+    let c = combinationFormula(13,spadeCount);
+    return c;
+}
+
+let heartCount = 0;
+function heart() {
+    let c = combinationFormula(13,heartCount);
+    return c;
+}
+
+let clubCount = 0;
+function club() {
+    let c = combinationFormula(13,clubCount);
+    return c;
+}
+
+let diamondCount = 0;
+function diamond() {
+    let c = combinationFormula(13,diamondCount);
+    return c;
+}
+
+let aceCount = 0;
+function ace() {
+    let c = combinationFormula(4,aceCount);
+    return c;
+}
+
+let twoCount = 0;
+function two() {
+    let c = combinationFormula(4,twoCount);
+    return c;
+}
+
+let threeCount = 0;
+function three() {
+    let c = combinationFormula(4,threeCount);
+    return c;
+}
+
+let fourCount = 0;
+function four() {
+    let c = combinationFormula(4,fourCount);
+    return c;
+}
+
+let fiveCount = 0;
+function five() {
+    let c = combinationFormula(4,fiveCount);
+    return c;
+}
+
+let sixCount = 0;
+function six() {
+    let c = combinationFormula(4,sixCount);
+    return c;
+}
+
+let sevenCount = 0;
+function seven() {
+    let c = combinationFormula(4,sevenCount);
+    return c;
+}
+
+let eightCount = 0;
+function eight() {
+    let c = combinationFormula(4,eightCount);
+    return c;
+}
+
+let nineCount = 0;
+function nine() {
+    let c = combinationFormula(4,nineCount);
+    return c;
+}
+
+let tenCount = 0;
+function ten() {
+    let c = combinationFormula(4,tenCount);
+    return c;
+}
+
+let jackCount = 0;
+function jack() {
+    let c = combinationFormula(4,jackCount);
+    return c;
+}
+
+let queenCount = 0;
+function queen() {
+    let c = combinationFormula(4,queenCount);
+    return c;
+}
+
+let kingCount = 0;
+function king() {
+    let c = combinationFormula(4,kingCount);
+    return c;
 }
